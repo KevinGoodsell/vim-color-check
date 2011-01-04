@@ -1,0 +1,63 @@
+" This is a replacement for syntax/syncolor.vim that removes all default
+" coloring.
+
+" From syntax.c
+highlight clear ColorColumn
+highlight clear Conceal
+highlight clear Cursor
+highlight clear CursorColumn
+highlight clear CursorLine
+highlight clear DiffAdd
+highlight clear DiffChange
+highlight clear DiffDelete
+highlight clear DiffText
+highlight clear Directory
+highlight clear ErrorMsg
+highlight clear FoldColumn
+highlight clear Folded
+highlight clear IncSearch
+highlight clear LineNr
+highlight clear MatchParen
+highlight clear ModeMsg
+highlight clear MoreMsg
+highlight clear NonText
+highlight clear Normal
+highlight clear Pmenu
+highlight clear PmenuSbar
+highlight clear PmenuSel
+highlight clear PmenuThumb
+highlight clear Question
+highlight clear Search
+highlight clear SignColumn
+highlight clear SpecialKey
+highlight clear SpellBad
+highlight clear SpellCap
+highlight clear SpellLocal
+highlight clear SpellRare
+highlight clear StatusLine
+highlight clear StatusLineNC
+highlight clear TabLine
+highlight clear TabLineFill
+highlight clear TabLineSel
+highlight clear Title
+highlight clear VertSplit
+highlight clear Visual
+highlight clear VisualNOS
+highlight clear WarningMsg
+highlight clear WildMenu
+highlight clear lCursor
+
+" From $VIMRUNTIME/syntax/syncolor.vim
+highlight clear Comment
+highlight clear Constant
+highlight clear Special
+highlight clear Identifier
+highlight clear Statement
+highlight clear PreProc
+highlight clear Type
+highlight clear Underlined
+highlight clear Ignore
+highlight clear Error
+highlight clear Todo
+
+let syntax_cmd = "skip"
