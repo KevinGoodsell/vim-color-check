@@ -1,22 +1,12 @@
 " Possible checks:
-" * background set incorrectly
-"   - Wrong place, wrong default colors.
-"   - Wrong value, doesn't match Normal and defaults are bad
-" * colors_name set incorrectly
-"   - Set in the wrong place, gets cleared.
-"   - Set to the wrong value, doesn't match the colorscheme file.
 " * Groups with a link and colors
-" * Links that aren't set because they require !
-"   - Tricky to check, but might be possible if runtimepath is modified to use
-"     custom syntax scripts.
-" * Changing settings, mappings, autocmds.
 " * Group name typos
 "   - Maybe create a list of all highlight groups that are set, report any
 "     "unknown" groups.
 " * Missing
 "   - highlight clear
 "   - syntax reset
-"   - Could use flags in syntax/syncolors.vim
+" * 'background' doesn't match real background color (ekvoli)
 
 " NOTES:
 " * What's the "best" preamble for colorschemes? Something like:
@@ -88,13 +78,22 @@ function! s:ColorSchemeResultChecks(name) abort
 
     let normal_links = s:GetLinks()
 
+    " Light background and link tests
+
+    set background=light
+    let g:cscheck_syncolor_log = []
+
     " Re-load colorscheme without default colors and check for new links. A
     " common mistake is to attempt to link groups that have default colors,
     " which silently fails.
     let &runtimepath = s:runtime_dir . "/cscheck_runtime," . &runtimepath
     exec "colorscheme " . a:name
-    let &runtimepath = saved_runtimepath
 
+    let light_log = g:cscheck_syncolor_log
+    let bg_after_light = &background
+    let g:cscheck_syncolor_log = []
+
+    " Check links
     let new_links = s:GetLinks()
 
     for link in new_links
@@ -102,6 +101,37 @@ function! s:ColorSchemeResultChecks(name) abort
             call s:Log("WARNING", printf("link might need !: %s", link[0]))
         endif
     endfor
+
+    " Dark background tests
+
+    set background=dark
+
+    let &runtimepath = s:runtime_dir . "/cscheck_runtime," . &runtimepath
+    exec "colorscheme " . a:name
+    let &runtimepath = saved_runtimepath
+
+    let dark_log = copy(g:cscheck_syncolor_log)
+    let g:cscheck_syncolor_log = []
+    let bg_after_dark = &background
+
+    if bg_after_dark == "dark" && bg_after_light == "light"
+        call s:Log("WARNING", "colorscheme didn't set 'background'")
+    elseif bg_after_dark == bg_after_light
+        call s:Log("INFO", printf("colorscheme uses %s background",
+            \ bg_after_dark))
+
+        " But was background set before the first "hi clear" and/or "syntax
+        " reset"?
+        if empty(dark_log) || empty(light_log)
+            call s:Log("WARNING", "didn't reset colors")
+        elseif dark_log[0][1] != light_log[0][1]
+            call s:Log("WARNING", "colorscheme changed 'background' after " .
+                                \ "setting color defaults")
+        endif
+    else
+        call s:Log("WARNING", "colorscheme inverts 'background' (weird)")
+    endif
+
 
     let &background = saved_background
     exec "colorscheme " . saved_colors_name
