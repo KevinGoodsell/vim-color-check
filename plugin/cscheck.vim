@@ -91,7 +91,6 @@ function! s:ColorSchemeResultChecks(name) abort
 
     let light_log = g:cscheck_syncolor_log
     let bg_after_light = &background
-    let g:cscheck_syncolor_log = []
 
     " Check links
     let new_links = s:GetLinks()
@@ -105,8 +104,8 @@ function! s:ColorSchemeResultChecks(name) abort
     " Dark background tests
 
     set background=dark
+    let g:cscheck_syncolor_log = []
 
-    let &runtimepath = s:runtime_dir . "/cscheck_runtime," . &runtimepath
     exec "colorscheme " . a:name
     let &runtimepath = saved_runtimepath
 
