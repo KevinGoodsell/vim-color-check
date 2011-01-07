@@ -109,7 +109,7 @@ function! s:ColorSchemeResultChecks(name) abort
     exec "colorscheme " . a:name
     let &runtimepath = saved_runtimepath
 
-    let dark_log = copy(g:cscheck_syncolor_log)
+    let dark_log = g:cscheck_syncolor_log
     let g:cscheck_syncolor_log = []
     let bg_after_dark = &background
 
