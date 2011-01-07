@@ -68,6 +68,8 @@ function! s:ColorSchemeResultChecks(name) abort
     let saved_colors_name = g:colors_name
     let saved_runtimepath = &runtimepath
 
+    " Initial tests
+
     exec "colorscheme " . a:name
 
     if !exists("g:colors_name")
@@ -75,6 +77,8 @@ function! s:ColorSchemeResultChecks(name) abort
     elseif g:colors_name != a:name
         call s:Log("ERROR", "colors_name doesn't match colorscheme file name")
     endif
+
+    call s:SpellCheckGroups()
 
     let normal_links = s:GetLinks()
 
@@ -161,6 +165,86 @@ function! s:GetGroups() abort
     return map(lines, "matchstr(v:val, group_pattern)")
 endfunction
 
+function! s:SpellCheckGroups() abort
+    if !exists("s:lower_group_names")
+        let s:lower_group_names = {}
+        for group in s:group_names
+            let s:lower_group_names[tolower(group)] = 1
+        endfor
+    endif
+
+    let unknown_groups = []
+
+    for group in s:GetGroups()
+        if has_key(s:lower_group_names, tolower(group))
+            continue
+        endif
+
+        let suggestion = s:SpellCheckGroup(group)
+        if !empty(suggestion)
+            call s:Log("WARNING", printf("possible typo: %s (did you mean %s?)",
+                \ group, suggestion))
+        endif
+
+        call add(unknown_groups, group)
+    endfor
+
+    call s:Log("INFO", printf("unknown highlight groups: %s",
+        \ string(unknown_groups)))
+endfunction
+
+function! s:SpellCheckGroup(name) abort
+    if !exists("s:group_typos")
+        let s:group_typos = {}
+        for group in s:group_names
+            call extend(s:group_typos, s:GetSpellingVariants(group))
+        endfor
+    endif
+
+    let variants = s:GetSpellingVariants(a:name)
+
+    for variant in keys(variants)
+        if has_key(s:group_typos, variant)
+            return s:group_typos[variant]
+        endif
+    endfor
+
+    return ""
+endfunction
+
+function! s:GetSpellingVariants(word) abort
+    let variants = s:GetVariantsHelper(tolower(a:word), a:word)
+
+    for variant in keys(variants)
+        call extend(variants, s:GetVariantsHelper(variant, a:word))
+    endfor
+
+    return variants
+endfunction
+
+function! s:GetVariantsHelper(word, value) abort
+    let result = {}
+
+    for i in range(strlen(a:word))
+        let front = strpart(a:word, 0, i)
+        let back = a:word[i :]
+        let deleted = front . back[1:]
+        let replaced = front . "*" . back[1:]
+        let inserted = front . "*" . back
+
+        if !empty(deleted)
+            let result[deleted] = a:value
+        endif
+        let result[replaced] = a:value
+        let result[inserted] = a:value
+    endfor
+
+    " One insertion missed.
+    let result[a:word . "*"] = a:value
+
+    return result
+endfunction
+
 let s:group_names = [
     \ "Comment",
     \ "Constant",
@@ -200,6 +284,7 @@ let s:group_names = [
     \ "ColorColumn",
     \ "Conceal",
     \ "Cursor",
+    \ "CursorIM",
     \ "CursorColumn",
     \ "CursorLine",
     \ "DiffAdd",
@@ -250,4 +335,7 @@ let s:group_names = [
     \ "User7",
     \ "User8",
     \ "User9",
+    \ "Menu",
+    \ "Scrollbar",
+    \ "Tooltip",
 \ ]
