@@ -15,7 +15,7 @@ else
     call add(g:cscheck_syncolor_log, ["hl_init", &background])
 endif
 
-" From syntax.c
+" Stuff from syntax.c that can't be otherwise ovirridden
 highlight clear ColorColumn
 highlight clear Conceal
 highlight clear Cursor
@@ -60,18 +60,5 @@ highlight clear VisualNOS
 highlight clear WarningMsg
 highlight clear WildMenu
 highlight clear lCursor
-
-" From $VIMRUNTIME/syntax/syncolor.vim
-highlight clear Comment
-highlight clear Constant
-highlight clear Special
-highlight clear Identifier
-highlight clear Statement
-highlight clear PreProc
-highlight clear Type
-highlight clear Underlined
-highlight clear Ignore
-highlight clear Error
-highlight clear Todo
 
 let syntax_cmd = "skip"

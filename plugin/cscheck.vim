@@ -66,7 +66,6 @@ endfunction
 function! s:ColorSchemeResultChecks(name) abort
     let saved_background = &background
     let saved_colors_name = g:colors_name
-    let saved_runtimepath = &runtimepath
 
     " Initial tests
 
@@ -85,15 +84,11 @@ function! s:ColorSchemeResultChecks(name) abort
     " Light background and link tests
 
     set background=light
-    let g:cscheck_syncolor_log = []
 
     " Re-load colorscheme without default colors and check for new links. A
     " common mistake is to attempt to link groups that have default colors,
     " which silently fails.
-    let &runtimepath = s:runtime_dir . "/cscheck_runtime," . &runtimepath
-    exec "colorscheme " . a:name
-
-    let light_log = g:cscheck_syncolor_log
+    let light_log = s:LoadWithoutDefaults(a:name)
     let bg_after_light = &background
 
     " Check links
@@ -108,13 +103,7 @@ function! s:ColorSchemeResultChecks(name) abort
     " Dark background tests
 
     set background=dark
-    let g:cscheck_syncolor_log = []
-
-    exec "colorscheme " . a:name
-    let &runtimepath = saved_runtimepath
-
-    let dark_log = g:cscheck_syncolor_log
-    let g:cscheck_syncolor_log = []
+    let dark_log = s:LoadWithoutDefaults(a:name)
     let bg_after_dark = &background
 
     if bg_after_dark == "dark" && bg_after_light == "light"
@@ -135,9 +124,30 @@ function! s:ColorSchemeResultChecks(name) abort
         call s:Log("WARNING", "colorscheme inverts 'background' (weird)")
     endif
 
-
     let &background = saved_background
     exec "colorscheme " . saved_colors_name
+endfunction
+
+" Returns the log of calls to syncolor.vim
+function! s:LoadWithoutDefaults(colorscheme) abort
+    call s:ClearHighlights()
+
+    let saved_runtimepath = &runtimepath
+    let &runtimepath = s:runtime_dir . "/cscheck_runtime," . &runtimepath
+
+    let g:cscheck_syncolor_log = []
+    exec "colorscheme " . a:colorscheme
+
+    let &runtimepath = saved_runtimepath
+
+    return copy(g:cscheck_syncolor_log)
+endfunction
+
+function! s:ClearHighlights() abort
+    for group in s:GetGroups(0)
+        exec printf("highlight clear %s|highlight link %s NONE",
+                  \ group, group)
+    endfor
 endfunction
 
 function! s:GetHighlights(with_cleared) abort
