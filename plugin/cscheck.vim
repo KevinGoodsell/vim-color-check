@@ -74,7 +74,8 @@ function! s:ColorSchemeResultChecks(name) abort
     if !exists("g:colors_name")
         call s:Log("ERROR", "colors_name doesn't exist!")
     elseif g:colors_name != a:name
-        call s:Log("ERROR", "colors_name doesn't match colorscheme file name")
+        call s:Log("ERROR", printf("colors_name (%s) doesn't match " .
+                                 \ "colorscheme file name", g:colors_name))
     endif
 
     call s:SpellCheckGroups()
