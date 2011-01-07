@@ -140,17 +140,21 @@ function! s:ColorSchemeResultChecks(name) abort
     exec "colorscheme " . saved_colors_name
 endfunction
 
-function! s:GetHighlights() abort
+function! s:GetHighlights(with_cleared) abort
     redir => hltext
     silent highlight
     redir END
 
     let hltext = substitute(hltext, '\v\n\s+', " ", "g")
+    if !a:with_cleared
+        let hltext = substitute(hltext, '\v\w+\s+xxx cleared($|\n)',
+                              \ "", "g")
+    endif
     return split(hltext, "\n")
 endfunction
 
 function! s:GetLinks() abort
-    let lines = s:GetHighlights()
+    let lines = s:GetHighlights(0)
 
     let link_pattern = '\v^(\w+)\s.*<links to\s*(\w+)'
     call filter(lines, "v:val =~ link_pattern")
@@ -158,8 +162,8 @@ function! s:GetLinks() abort
     return map(lines, "matchlist(v:val, link_pattern)[1:2]")
 endfunction
 
-function! s:GetGroups() abort
-    let lines = s:GetHighlights()
+function! s:GetGroups(with_cleared) abort
+    let lines = s:GetHighlights(a:with_cleared)
 
     let group_pattern = '\v^\w+\ze'
     return map(lines, "matchstr(v:val, group_pattern)")
@@ -175,7 +179,7 @@ function! s:SpellCheckGroups() abort
 
     let unknown_groups = []
 
-    for group in s:GetGroups()
+    for group in s:GetGroups(0)
         if has_key(s:lower_group_names, tolower(group))
             continue
         endif
@@ -189,8 +193,10 @@ function! s:SpellCheckGroups() abort
         call add(unknown_groups, group)
     endfor
 
-    call s:Log("INFO", printf("unknown highlight groups: %s",
-        \ string(unknown_groups)))
+    if !empty(unknown_groups)
+        call s:Log("INFO", printf("unknown highlight groups: %s",
+            \ string(unknown_groups)))
+    endif
 endfunction
 
 function! s:SpellCheckGroup(name) abort
