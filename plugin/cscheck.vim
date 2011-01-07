@@ -23,7 +23,7 @@ function! g:CheckColorScheme(name) abort
     call s:ColorSchemeResultChecks(a:name)
 endfunction
 
-function! s:Log(level, msg)
+function! s:Log(level, msg) abort
     echomsg printf("%s: %s", a:level, a:msg)
 endfunction
 
@@ -137,7 +137,7 @@ function! s:ColorSchemeResultChecks(name) abort
     exec "colorscheme " . saved_colors_name
 endfunction
 
-function! s:GetHighlights()
+function! s:GetHighlights() abort
     redir => hltext
     silent highlight
     redir END
@@ -146,7 +146,7 @@ function! s:GetHighlights()
     return split(hltext, "\n")
 endfunction
 
-function! s:GetLinks()
+function! s:GetLinks() abort
     let lines = s:GetHighlights()
 
     let link_pattern = '\v^(\w+)\s.*<links to\s*(\w+)'
@@ -154,3 +154,101 @@ function! s:GetLinks()
 
     return map(lines, "matchlist(v:val, link_pattern)[1:2]")
 endfunction
+
+function! s:GetGroups() abort
+    let lines = s:GetHighlights()
+
+    let group_pattern = '\v^\w+\ze'
+    return map(lines, "matchstr(v:val, group_pattern)")
+endfunction
+
+let s:group_names = [
+    \ "Comment",
+    \ "Constant",
+    \ "Special",
+    \ "Identifier",
+    \ "Statement",
+    \ "PreProc",
+    \ "Type",
+    \ "Underlined",
+    \ "Ignore",
+    \ "Error",
+    \ "Todo",
+    \ "String",
+    \ "Character",
+    \ "Number",
+    \ "Boolean",
+    \ "Float",
+    \ "Function",
+    \ "Conditional",
+    \ "Repeat",
+    \ "Label",
+    \ "Operator",
+    \ "Keyword",
+    \ "Exception",
+    \ "Include",
+    \ "Define",
+    \ "Macro",
+    \ "PreCondit",
+    \ "StorageClass",
+    \ "Structure",
+    \ "Typedef",
+    \ "Tag",
+    \ "SpecialChar",
+    \ "Delimiter",
+    \ "SpecialComment",
+    \ "Debug",
+    \ "ColorColumn",
+    \ "Conceal",
+    \ "Cursor",
+    \ "CursorColumn",
+    \ "CursorLine",
+    \ "DiffAdd",
+    \ "DiffChange",
+    \ "DiffDelete",
+    \ "DiffText",
+    \ "Directory",
+    \ "ErrorMsg",
+    \ "FoldColumn",
+    \ "Folded",
+    \ "IncSearch",
+    \ "LineNr",
+    \ "MatchParen",
+    \ "ModeMsg",
+    \ "MoreMsg",
+    \ "NonText",
+    \ "Normal",
+    \ "Pmenu",
+    \ "PmenuSbar",
+    \ "PmenuSel",
+    \ "PmenuThumb",
+    \ "Question",
+    \ "Search",
+    \ "SignColumn",
+    \ "SpecialKey",
+    \ "SpellBad",
+    \ "SpellCap",
+    \ "SpellLocal",
+    \ "SpellRare",
+    \ "StatusLine",
+    \ "StatusLineNC",
+    \ "TabLine",
+    \ "TabLineFill",
+    \ "TabLineSel",
+    \ "Title",
+    \ "VertSplit",
+    \ "Visual",
+    \ "VisualNOS",
+    \ "WarningMsg",
+    \ "WildMenu",
+    \ "lCursor",
+    \ "User1",
+    \ "User2",
+    \ "User3",
+    \ "User4",
+    \ "User5",
+    \ "User6",
+    \ "User7",
+    \ "User8",
+    \ "User9",
+\ ]
