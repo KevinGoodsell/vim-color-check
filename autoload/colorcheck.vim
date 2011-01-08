@@ -23,6 +23,17 @@
 " Vim Color Check.  If not, see <http://www.gnu.org/licenses/>.
 "
 " }}}
+" {{{ USAGE
+"
+" To check a color scheme, make sure it's in Vim's runtimepath and use a
+" command like this:
+"
+"   :call colorcheck#Check("colorscheme_name")
+"
+" The results go in Vim's message log, and can be reviewed with the :messages
+" command.
+"
+" }}}
 
 let s:save_cpo = &cpo
 set cpo&vim
