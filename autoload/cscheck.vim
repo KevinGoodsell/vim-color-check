@@ -18,7 +18,7 @@
 
 let s:runtime_dir = expand("<sfile>:h:h:p")
 
-function! g:CheckColorScheme(name) abort
+function! cscheck#Check(name) abort
     call s:ColorSchemeFileChecks(a:name)
     call s:ColorSchemeResultChecks(a:name)
 endfunction
@@ -131,7 +131,7 @@ endfunction
 
 " Returns the log of calls to syncolor.vim
 function! s:LoadWithoutDefaults(colorscheme) abort
-    call s:ClearHighlights()
+    call cscheck#ClearHighlights()
 
     let saved_runtimepath = &runtimepath
     let &runtimepath = s:runtime_dir . "/cscheck_runtime," . &runtimepath
@@ -144,7 +144,7 @@ function! s:LoadWithoutDefaults(colorscheme) abort
     return copy(g:cscheck_syncolor_log)
 endfunction
 
-function! s:ClearHighlights() abort
+function! cscheck#ClearHighlights() abort
     for group in s:GetGroups(0)
         exec printf("highlight clear %s|highlight link %s NONE",
                   \ group, group)
