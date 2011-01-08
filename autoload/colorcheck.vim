@@ -1,24 +1,35 @@
-" Possible checks:
-" * Groups with a link and colors
-" * Group name typos
-"   - Maybe create a list of all highlight groups that are set, report any
-"     "unknown" groups.
-" * Missing
-"   - highlight clear
-"   - syntax reset
-" * 'background' doesn't match real background color (ekvoli)
+" Vim plugin to check for errors in color schemes.
+" Last Change: 2011 Jan 8
+" Maintainer:  Kevin Goodsell <kevin-opensource@omegacrash.net>
+" License:     GPL (see below)
 
-" NOTES:
-" * What's the "best" preamble for colorschemes? Something like:
-"   set background=...
-"   highlight clear
-"   if exists("syntax_on")
-"       syntax reset
-"   endif
+" {{{ COPYRIGHT & LICENSE
+"
+" Copyright 2011 Kevin Goodsell
+"
+" This file is part of Vim Color Check.
+"
+" Vim Color Check is free software: you can redistribute it and/or modify it
+" under the terms of the GNU General Public License as published by the Free
+" Software Foundation, either version 3 of the License, or (at your option)
+" any later version.
+"
+" Vim Color Check is distributed in the hope that it will be useful, but
+" WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+" or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+" more details.
+"
+" You should have received a copy of the GNU General Public License along with
+" Vim Color Check.  If not, see <http://www.gnu.org/licenses/>.
+"
+" }}}
+
+let s:save_cpo = &cpo
+set cpo&vim
 
 let s:runtime_dir = expand("<sfile>:h:h:p")
 
-function! cscheck#Check(name) abort
+function! colorcheck#Check(name) abort
     call s:ColorSchemeFileChecks(a:name)
     call s:ColorSchemeResultChecks(a:name)
 endfunction
@@ -72,7 +83,7 @@ function! s:ColorSchemeResultChecks(name) abort
     exec "colorscheme " . a:name
 
     if !exists("g:colors_name")
-        call s:Log("ERROR", "colors_name doesn't exist!")
+        call s:Log("ERROR", "colors_name was not set")
     elseif g:colors_name != a:name
         call s:Log("ERROR", printf("colors_name (%s) doesn't match " .
                                  \ "colorscheme file name", g:colors_name))
@@ -131,20 +142,20 @@ endfunction
 
 " Returns the log of calls to syncolor.vim
 function! s:LoadWithoutDefaults(colorscheme) abort
-    call cscheck#ClearHighlights()
+    call colorcheck#ClearHighlights()
 
     let saved_runtimepath = &runtimepath
-    let &runtimepath = s:runtime_dir . "/cscheck_runtime," . &runtimepath
+    let &runtimepath = s:runtime_dir . "/runtime," . &runtimepath
 
-    let g:cscheck_syncolor_log = []
+    let g:colorcheck_syncolor_log = []
     exec "colorscheme " . a:colorscheme
 
     let &runtimepath = saved_runtimepath
 
-    return copy(g:cscheck_syncolor_log)
+    return copy(g:colorcheck_syncolor_log)
 endfunction
 
-function! cscheck#ClearHighlights() abort
+function! colorcheck#ClearHighlights() abort
     for group in s:GetGroups(0)
         exec printf("highlight clear %s|highlight link %s NONE",
                   \ group, group)
@@ -366,3 +377,5 @@ let s:group_names += [
 let s:group_names += [
     \ "lCursor",
 \ ]
+
+let &cpo = s:save_cpo
