@@ -100,8 +100,6 @@ function! s:ColorSchemeResultChecks(name) abort
                                  \ "colorscheme file name", g:colors_name))
     endif
 
-    call s:SpellCheckGroups()
-
     let normal_links = s:GetLinks()
 
     " Light background and link tests
@@ -122,6 +120,9 @@ function! s:ColorSchemeResultChecks(name) abort
             call s:Log("WARNING", printf("link might need !: %s", link[0]))
         endif
     endfor
+
+    " Checking spelling after LoadWithoutDefaults can be much faster.
+    call s:SpellCheckGroups()
 
     " Dark background tests
 
