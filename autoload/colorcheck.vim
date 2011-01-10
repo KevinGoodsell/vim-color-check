@@ -82,6 +82,11 @@ function! s:ColorSchemeFileChecks(name) abort
             call s:Log("WARNING",
                 \ printf("possible mapping at line %d", linenr))
         endif
+
+        if line =~ '\v<com%[mand]>'
+            call s:Log("WARNING",
+                \ printf("possible command at line %d", linenr))
+        endif
     endfor
 endfunction
 
