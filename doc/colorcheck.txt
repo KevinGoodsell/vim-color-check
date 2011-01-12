@@ -1,0 +1,39 @@
+*colorcheck.txt*     Check for common errors in color schemes
+
+
+|colorcheck-intro|   Introduction
+|colorcheck-license| Copyright and License
+
+==============================================================================
+colorcheck Introduction                                     *colorcheck-intro*
+
+This is an add-on for Vim that checks for common issues in Vim color schemes.
+It implements a single public function, |colorcheck#Check()|, which takes as
+its argument the name of the color scheme to check. The output is written into
+Vim's message log and can be reviewed with |:messages|.
+
+colorcheck#Check({name})                                  *colorcheck#Check()*
+    {name} must be a string giving the name of a color scheme available in
+    'runtimepath'. Runs checks an that file and reports results in the Vim
+    message log.
+
+
+==============================================================================
+Copyright and License                                     *colorcheck-license*
+
+Copyright 2011 Kevin Goodsell
+
+This file is part of Vim Color Check.
+
+Vim Color Check is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version.
+
+Vim Color Check is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+details.
+
+You should have received a copy of the GNU General Public License along with
+Vim Color Check.  If not, see <http://www.gnu.org/licenses/>.
