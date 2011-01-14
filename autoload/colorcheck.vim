@@ -1,5 +1,5 @@
 " Vim plugin to check for errors in color schemes.
-" Last Change: 2011 Jan 13
+" Last Change: 2011 Jan 14
 " Maintainer:  Kevin Goodsell <kevin-opensource@omegacrash.net>
 " License:     GPL (see below)
 
@@ -31,7 +31,8 @@
 "   :call colorcheck#Check("colorscheme_name")
 "
 " The results go in Vim's message log, and can be reviewed with the :messages
-" command.
+" command. The messages are also placed in the list variable g:colorcheck_log
+" for convenience.
 "
 " }}}
 
@@ -41,12 +42,15 @@ set cpo&vim
 let s:runtime_dir = expand("<sfile>:h:h:p")
 
 function! colorcheck#Check(name) abort
+    let g:colorcheck_log = []
     call s:ColorSchemeFileChecks(a:name)
     call s:ColorSchemeResultChecks(a:name)
 endfunction
 
 function! s:Log(level, msg) abort
-    echomsg printf("%s: %s", a:level, a:msg)
+    let msg = printf("%s: %s", a:level, a:msg)
+    echomsg msg
+    call add(g:colorcheck_log, msg)
 endfunction
 
 function! s:ColorSchemeFileChecks(name) abort

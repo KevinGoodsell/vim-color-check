@@ -12,6 +12,10 @@ It implements a single public function, |colorcheck#Check()|, which takes as
 its argument the name of the color scheme to check. The output is written into
 Vim's message log and can be reviewed with |:messages|.
 
+                                                          *'g:colorcheck_log'*
+The ouptut is also placed in the list variable 'g:colorcheck_log' for
+convenience.
+
 colorcheck#Check({name})                                  *colorcheck#Check()*
     {name} must be a string giving the name of a color scheme available in
     'runtimepath'. Runs checks an that file and reports results in the Vim
