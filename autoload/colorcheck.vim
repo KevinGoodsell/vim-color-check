@@ -84,6 +84,13 @@ function! s:ColorSchemeFileChecks(name) abort
             call s:Log("WARNING",
                 \ printf("possible command at line %d", linenr))
         endif
+
+        let matches = matchlist(line,
+            \ '\v<(term|start|stop|(cterm|gui)([bf]g)?|guisp|font)\=.*<\1>\=')
+        if !empty(matches)
+            call s:Log("WARNING", printf("possible duplicated '%s' at line %d",
+                                       \ matches[1], linenr))
+        endif
     endfor
 endfunction
 
