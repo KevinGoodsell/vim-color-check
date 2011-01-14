@@ -1,5 +1,5 @@
 " Vim plugin to check for errors in color schemes.
-" Last Change: 2011 Jan 8
+" Last Change: 2011 Jan 13
 " Maintainer:  Kevin Goodsell <kevin-opensource@omegacrash.net>
 " License:     GPL (see below)
 
@@ -59,10 +59,7 @@ function! s:ColorSchemeFileChecks(name) abort
         call s:Log("INFO", printf("using file %s", path))
     endif
 
-    let linenr = 0
-    for line in readfile(path)
-        let linenr += 1
-
+    for [linenr, line] in s:ReadMergedLines(path)
         if line =~ '\v^\s*"'
             continue
         endif
@@ -88,6 +85,31 @@ function! s:ColorSchemeFileChecks(name) abort
                 \ printf("possible command at line %d", linenr))
         endif
     endfor
+endfunction
+
+function! s:ReadMergedLines(filename) abort
+    let result = []
+    let curline = []
+    let linenr = 0
+    for line in readfile(a:filename)
+        let linenr += 1
+        if line =~ '\v^\s*\\'
+            " Contituation line, add to curline
+            call add(curline, substitute(line, '\v^\s*\\', "", ""))
+        else
+            " New line. Dump curline and start over.
+            if !empty(curline)
+                call add(result, [linenr-1, join(curline, "")])
+            endif
+            let curline = [line]
+        endif
+    endfor
+
+    if !empty(curline)
+        call add(result, [linenr, join(curline, "")])
+    endif
+
+    return result
 endfunction
 
 function! s:ColorSchemeResultChecks(name) abort
