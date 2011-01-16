@@ -1,0 +1,303 @@
+Recommendations For Writing Vim Color Schemes
+---------------------------------------------
+
+Copyright 2011 Kevin Goodsell
+
+This file is part of Vim Color Check.
+
+Vim Color Check is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by the
+Free Software Foundation, either version 3 of the License, or (at your
+option) any later version.
+
+Vim Color Check is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with Vim Color Check. If not, see <http://www.gnu.org/licenses/>.
+
+1. Include a copyright notice and license at the top of the file
+
+While I can't give legal advice, this is a pretty basic part of
+releasing a work online. For more details you should generally consult a
+legal resource.
+
+Some licenses have convenient instructions about how to use them. For
+example, GPL and Creative Commons:
+
+http://www.gnu.org/licenses/gpl-howto.html
+http://creativecommons.org/choose/
+
+Please do not use "public domain" as your license. A public domain
+dedication is not meaningful in all copyright jurisdictions. Consider
+something like Creative Commons' CC0 license instead:
+
+http://creativecommons.org/about/cc0
+
+2. The standard preamble
+
+The basic preamble for a color scheme looks like this:
+
+    set background=dark
+    highlight clear
+    if exists("syntax_on")
+        syntax reset
+    endif
+
+    let g:colors_name = "filename"
+
+2.1 Background
+
+Setting 'background' should happen very early. In particular, it should
+come before any :highlight or :syntax commands. This is because the
+value of 'background' affects the default colors that get loaded by
+these commands.
+
+Most color schemes should explicitly set 'background' to 'light' or
+'dark', depending on what type of background they use. Think of it as a
+way of advertising Vim's current appearance. For example, plugin could
+use this to select a color that will be readable against the current
+background.
+
+Some color schemes provide a light and a dark variant. Such a color
+scheme should *not* change the value of 'background', but should use it
+to select a variant:
+
+    if &background == "dark"
+        " Load colors with a dark background
+        " ...
+    else
+        " Load colors with a light background
+        " ...
+    endif
+
+This will respect the user's preference, and also allows switching
+between the light and dark variants just by changing 'background' (which
+automatically reloads the color scheme).
+
+2.2 highlight clear
+
+The command 'highlight clear' unloads the current color scheme by
+clearing g:colors_name, removing settings (but not links) from all
+highlight groups, and re-initializing the highlighting. This loads
+default highlight group settings for UI elements like status line, then
+typically sources syntax/syncolor.vim to set defaults for syntax items
+(comments, keywords, etc.) as well. Syntax items are skipped if ":syntax
+on" is not in effect.
+
+2.3 syntax reset
+
+The command "syntax reset" simply sources syntax/syncolor.vim with the
+variable syntax_cmd set to "reset". It's fairly easy to follow what
+happens in that script. Default highlighting is set for syntax-related
+groups, including links.
+
+This is unnecessary when syntax highlighting is not in use, so it may be
+skipped if the syntax_on variable doesn't exist. This doesn't seem to be
+crucial, though.
+
+2.4 colors_name
+
+The global variable 'colors_name' should always be set to the name of
+the color scheme, which must be the same as the file name. When Vim
+reloads the color scheme, it does the equivalent of this:
+
+    execute "colorscheme " . g:colors_name
+
+In other words, g:colors_name should have exactly the value that you
+would enter on the command line after "colorscheme".
+
+Setting g:colors_name must happen *after* "highlight clear", because
+that command clears g:colors_name.
+
+Using the "g:" prefix is optional, but makes it clear that this variable
+is global.
+
+3. Set the "Normal" highlight group before other groups
+
+The first highlight group that is set up should generally be the
+"Normal" group. While this is partly because of its relative importance,
+there is also a technical reason for it. The color aliases "fg" and "bg"
+can be used to refer to Normal's foreground and background, but for
+terminal colors this only works *after* the corresponding item has been
+set in the Normal group, otherwise an error (E420) is emitted. GUI
+colors don't have this restriction. (GUI colors can also use the
+alternate spellings "foreground" and "background", but these are not
+recognized for ctermfg and ctermbg colors!)
+
+4. Fix 'background' after setting Normal
+
+Due to a bug in Vim, 'background' will be set to 'light' when setting
+the Normal group's ctermbg to any color above 8. To work around this,
+you might want to set 'background' right after setting up the Normal
+group. Otherwise the value of 'background' may be wrong after the color
+scheme finishes loading.
+
+5. Force links with "highlight! link"
+
+A command like this in a color scheme will silently fail:
+
+    highlight link MoreMsg ModeMsg
+
+Running it from the command line, you can see that it produces E414
+because the MoreMsg group already has settings defined. Any group with
+default settings can't be linked without using the exclamation point to
+force it. (Alternatively, the group can first be cleared with "highlight
+clear <group>".)
+
+The easiest solution is to always force links. Some groups won't need
+it, but it doesn't hurt.
+
+6. Set GUI items unconditionally
+
+While it's possible to detect when Vim is running in a terminal and skip
+setting GUI items in that case, please don't. Some plugins use the GUI
+colors to provide better colors in a terminal.
+
+7. Don't change settings
+
+With few exceptions, color schemes should leave users' settings alone.
+'background' may be set as noted previously. Setting 'guicursor' to
+match the color scheme is debatable, but I recommend not doing it. It's
+fine to set up groups that the user can apply to his or her cursor
+(e.g., iCursor, vCursor, etc.) and supply a suggested value for
+'guicursor', but leave the final choice up to the user. You could even
+allow the user to "opt-in" to your alternate settings by defining an
+option variable like g:mycolorscheme_use_guicursor, as long as it's the
+user who is making the choice.
+
+8. Don't add commands, autocmds, mappings, etc.
+
+Please don't clutter the user's Vim environment with unnecessary items.
+If your color scheme uses a command in its implementation, remove it
+when it is no longer needed. Mappings and autocmds should be left up to
+the user. If your color scheme has adjustable options, use variables to
+select the options (and it should go without saying that the variable
+names should use a prefix that identifies them with your color scheme).
+
+A possible exception is using a ColorScheme autocmd to clean up after
+your color scheme when a new color scheme is selected (reverting changes
+to settings, etc.). In such a case the autocmd should be in an augroup
+that is clearly identified with your color scheme and the autocmd should
+delete this augroup as part of its clean up. Of course it is preferable
+to not need any clean up in the first place.
+
+9. List of standard highlight groups
+
+It's surprisingly difficult to find a complete list of the highlight
+groups that can be used in color scheme files, so they are collected
+here. Any group name is accepted in a highlight command, but some are
+used internally for UI elements, some are used as standard for syntax,
+and anything else is only meaningful if a syntax file uses it.
+
+9.1 UI highlight groups
+
+These are mostly documented in :help highlight-groups, but at least one
+(lCursor) is missing.
+
+Cursor
+lCursor
+CursorIM
+CursorColumn
+CursorLine
+Directory
+DiffAdd
+DiffChange
+DiffDelete
+DiffText
+ErrorMsg
+VertSplit
+Folded
+FoldColumn
+SignColumn
+IncSearch
+LineNr
+MatchParen
+ModeMsg
+MoreMsg
+NonText
+Normal
+Pmenu
+PmenuSel
+PmenuSbar
+PmenuThumb
+Question
+Search
+SpecialKey
+SpellBad
+SpellCap
+SpellLocal
+SpellRare
+StatusLine
+StatusLineNC
+TabLine
+TabLineFill
+TabLineSel
+Title
+Visual
+VisualNOS
+WarningMsg
+WildMenu
+User1
+User2
+User3
+User4
+User5
+User6
+User7
+User8
+User9
+Menu
+Scrollbar
+Tooltip
+
+9.2 Basic syntax highlight groups
+
+The complete list of basic syntax highlight groups can be found in :help
+group-name, or in $VIMRUNTIME/syntax/syncolor.vim.
+
+Several of these are linked to a few core groups by default. Try to make
+your color scheme cover at least the core groups.
+
+9.2.1 Core syntax highlight groups
+
+Comment
+Constant
+Special
+Identifier
+Statement
+PreProc
+Type
+Underlined
+Ignore
+Error
+Todo
+
+9.2.1 Linked syntax highlight groups
+
+String
+Character
+Number
+Boolean
+Float
+Function
+Conditional
+Repeat
+Label
+Operator
+Keyword
+Exception
+Include
+Define
+Macro
+PreCondit
+StorageClass
+Structure
+Typedef
+Tag
+SpecialChar
+Delimiter
+SpecialComment
+Debug
