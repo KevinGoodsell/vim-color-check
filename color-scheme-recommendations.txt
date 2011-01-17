@@ -122,8 +122,8 @@ The first highlight group that is set up should generally be the
 there is also a technical reason for it. The color aliases "fg" and "bg"
 can be used to refer to Normal's foreground and background, but for
 terminal colors this only works *after* the corresponding item has been
-set in the Normal group, otherwise an error (E420) is emitted. GUI
-colors don't have this restriction. (GUI colors can also use the
+set in the Normal group, otherwise an error (E419 or E420) is emitted.
+GUI colors don't have this restriction. (GUI colors can also use the
 alternate spellings "foreground" and "background", but these are not
 recognized for ctermfg and ctermbg colors!)
 
