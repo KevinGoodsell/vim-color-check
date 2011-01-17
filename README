@@ -1,2 +1,20 @@
 This is a Vim add-on to check for common errors in color schemes.
-Complete documentation can be found in the 'doc' directory.
+
+DOCUMENTATION
+-------------
+Main documentation is located in the doc/ directory.
+
+The file color-scheme-recommendations.txt contains some guidelines and
+help for writing color schemes.
+
+PATCHES
+-------
+The patches/ directory contains patches for some of the color schemes
+that are available on vim.org or elsewhere on the Internet, as well as
+documentation for those patches. Most notably, a patch is included for
+the color schemes in ColorSamplerPack.zip, a collection of the most
+popular color schemes from vim.org:
+
+http://www.vim.org/scripts/script.php?script_id=625
+
+(Currently this is the only patch.)

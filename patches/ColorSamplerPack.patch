@@ -1,0 +1,1271 @@
+diff -u -r colors-orig/adaryn.vim colors/adaryn.vim
+--- colors-orig/adaryn.vim	2010-01-20 22:53:48.000000000 -0800
++++ colors/adaryn.vim	2011-01-14 11:32:33.000000000 -0800
+@@ -34,7 +34,7 @@
+ hi WarningMsg	guifg=red ctermfg=red
+ hi WildMenu	guifg=yellow guibg=black ctermfg=yellow ctermbg=black cterm=none term=none
+ hi ModeMsg	guifg=#22cce2 ctermfg=lightblue
+-hi MoreMsg	ctermfg=darkgreen ctermfg=darkgreen
++hi MoreMsg	ctermfg=darkgreen
+ hi Question	guifg=green gui=none ctermfg=green cterm=none
+ hi NonText	guifg=#0030ff ctermfg=darkblue
+ 
+diff -u -r colors-orig/adrian.vim colors/adrian.vim
+--- colors-orig/adrian.vim	2010-01-20 22:54:26.000000000 -0800
++++ colors/adrian.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -28,8 +28,8 @@
+ 
+ 
+ 
+-hi clear
+ set background=dark
++hi clear
+ if exists("syntax_on")
+   syntax reset
+ endif
+diff -u -r colors-orig/astronaut.vim colors/astronaut.vim
+--- colors-orig/astronaut.vim	2006-02-21 18:05:38.000000000 -0800
++++ colors/astronaut.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -140,7 +140,7 @@
+  exe "hi TabLineSel     start=[m[37;44m   stop=[m[32m   ctermfg=".s:green."     ctermbg=".s:blue."      guifg=green       guibg=blue          term=none".s:bold."             cterm=none".s:bold."              gui=none".s:bold.s:underline.s:italic
+  exe "hi TabLineFill    start=[m[34;44m   stop=[m[32m   ctermfg=".s:blue."      ctermbg=".s:blue."      guifg=blue        guibg=blue          term=none".s:bold."             cterm=none".s:bold."              gui=none".s:bold
+ endif
+-exe "hi Tags           start=[m[33;44m   stop=[m[32m   ctermfg=".s:yellow."    ctermbg=".s:blue."      guifg=yellow      guibg=blue3         term=none".s:bold."             cterm=none".s:bold."              gui=none".s:bold
++exe "hi Tag           start=[m[33;44m   stop=[m[32m   ctermfg=".s:yellow."    ctermbg=".s:blue."      guifg=yellow      guibg=blue3         term=none".s:bold."             cterm=none".s:bold."              gui=none".s:bold
+ exe "hi Title          start=[m[37m      stop=[m[32m   ctermfg=".s:white."                             guifg=white                           term=none".s:bold."             cterm=none".s:bold."              gui=none".s:bold
+ exe "hi Todo           start=[m[37;45m   stop=[m[32m   ctermfg=".s:white."     ctermbg=".s:magenta."   guifg=white       guibg=magenta       term=none".s:bold."             cterm=none".s:bold."              gui=none".s:bold
+ exe "hi Type           start=[m[4;32m    stop=[m[32m   ctermfg=".s:green."    ".s:ulbg."               guifg=seagreen1                       term=none".s:underline.s:bold." cterm=none".s:bold.s:underline."  gui=none".s:bold.s:underline
+diff -u -r colors-orig/autumn2.vim colors/autumn2.vim
+--- colors-orig/autumn2.vim	2009-06-04 21:52:32.000000000 -0700
++++ colors/autumn2.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -8,7 +8,7 @@
+         syntax reset
+ endif
+ 
+-let colors_name = "autumn"
++let colors_name = "autumn2"
+ 
+ hi Normal       term=none      cterm=none ctermfg=black         ctermbg=White           gui=none guifg=Black            guibg=#f0f2f0
+ hi Cursor       term=none      cterm=none ctermfg=white         ctermbg=darkgrey        gui=none guifg=black            guibg=red
+diff -u -r colors-orig/autumnleaf.vim colors/autumnleaf.vim
+--- colors-orig/autumnleaf.vim	2010-01-20 22:48:50.000000000 -0800
++++ colors/autumnleaf.vim	2011-01-16 16:58:42.000000000 -0800
+@@ -12,7 +12,7 @@
+     syntax reset
+ endif
+ 
+-let colors_name="AutumnLeaf"
++let colors_name="autumnleaf"
+ 
+ 
+ " Colors for the User Interface.
+@@ -40,8 +40,8 @@
+ 
+ hi ErrorMsg	    guibg=bg	guifg=#cc0000   gui=bold
+ hi ModeMsg	    guibg=bg	guifg=#003399   gui=none
+-hi link	MoreMsg	    ModeMsg
+-hi link Question    ModeMsg
++hi! link	MoreMsg	    ModeMsg
++hi! link Question    ModeMsg
+ hi WarningMsg	    guibg=bg	guifg=#cc0000   gui=bold
+ 
+ hi StatusLine	guibg=#ffeebb	guifg=black	gui=bold
+diff -u -r colors-orig/bclear.vim colors/bclear.vim
+--- colors-orig/bclear.vim	2010-01-20 22:48:56.000000000 -0800
++++ colors/bclear.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -3,8 +3,8 @@
+ " Maintainer:   Ricky Cintron 'borosai' [borosai at gmail dot com]
+ " Last Change:  2009-08-04
+ 
+-hi clear
+ set background=light
++hi clear
+ if exists("syntax_on")
+   syntax reset
+ endif
+diff -u -r colors-orig/blacksea.vim colors/blacksea.vim
+--- colors-orig/blacksea.vim	2010-01-20 22:55:30.000000000 -0800
++++ colors/blacksea.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -12,7 +12,7 @@
+ if exists("syntax_on")
+   syntax reset
+ endif
+-let g:colors_name = "BlackSea"
++let g:colors_name = "blacksea"
+ 
+ hi Normal guibg=Black guifg=seashell ctermfg=White
+ hi NonText guifg=LavenderBlush ctermfg=LightMagenta
+diff -u -r colors-orig/bluegreen.vim colors/bluegreen.vim
+--- colors-orig/bluegreen.vim	2009-06-04 21:52:52.000000000 -0700
++++ colors/bluegreen.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -14,7 +14,7 @@
+ if exists("syntax_on")
+     syntax reset
+ endif
+-let g:colors_name="mine"
++let g:colors_name="bluegreen"
+ 
+ hi Normal       guifg=White guibg=#061A3E
+ 
+diff -u -r colors-orig/calmar256-dark.vim colors/calmar256-dark.vim
+--- colors-orig/calmar256-dark.vim	2010-01-20 22:51:48.000000000 -0800
++++ colors/calmar256-dark.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -4,19 +4,7 @@
+ " Maintainer:: calmar <mac@calmar.ws>
+ "
+ " for a 256 color capable terminal like xterm-256color, ... or gvim as well
+-" "{{{
+-" it only works in such a terminal and when you have:
+-" set t_Co=256
+-" in your vimrc"}}}
+-
+-" {{{ t_Co=256 is set - check 
+-if &t_Co != 256 && ! has("gui_running")
+-    echomsg ""
+-    echomsg "write 'set t_Co=256' in your .vimrc or this file won't load"
+-    echomsg ""
+-    finish
+-endif
+-" }}}
++
+ " {{{ reset colors and set colors_name and store cpo setting
+ set background=dark
+ hi clear
+@@ -93,7 +81,7 @@
+             \ ["Title",         "bold", "98",   "",     "",         ""   ],
+             \ ["Visual",        "",     "",     "238",  "",         ""   ],
+             \ ["Comment",       "",     "37",   "",     "",         ""   ],
+-            \ ["Costant",       "",     "73",   "",     "",         ""   ],
++            \ ["Constant",      "",     "73",   "",     "",         ""   ],
+             \ ["String",        "",     "190",  "",     "",         ""   ],
+             \ ["Error",         "",     "69",   "",     "",         ""   ],
+             \ ["Identifier",    "",     "81",   "",     "",         ""   ],
+@@ -129,7 +117,7 @@
+ " {{{ change empty fields to "NONE"
+ 
+ for s:col in s:colors256
+-    for i in  [1, 2, 3, 4, 5]
++    for i in  [1, 2, 3, 5]
+         if s:col[i] == "" 
+             let s:col[i] = "NONE"
+         endif
+@@ -137,7 +125,7 @@
+ endfor
+ 
+ for s:col in s:colorvim7
+-    for i in  [1, 2, 3, 4, 5]
++    for i in  [1, 2, 3, 5]
+         if s:col[i] == "" 
+             let s:col[i] = "NONE"
+         endif
+@@ -171,7 +159,6 @@
+ endfunction
+ " }}}
+ " {{{ color setup for terminal
+-if ! has("gui_running")
+     for s:col in s:colors256
+         exec "hi ".s:col[0]." cterm=".s:col[1]." ctermfg=".s:col[2]." ctermbg=".s:col[3]
+     endfor
+@@ -180,7 +167,6 @@
+             exec "hi ".s:col[0]." cterm=".s:col[1]." ctermfg=".s:col[2]." ctermbg=".s:col[3]
+         endfor
+     endif
+-else
+ " }}}
+     " color-mapping array {{{
+     " number of vim colors and #html colors equivalent for gui
+@@ -241,7 +227,6 @@
+             call s:guisetcolor(s:col)
+         endfor
+     endif
+-endif
+ " }}}
+ let &cpo = s:save_cpo   " restoring &cpo value
+ " vim: set fdm=marker fileformat=unix:
+diff -u -r colors-orig/calmar256-light.vim colors/calmar256-light.vim
+--- colors-orig/calmar256-light.vim	2010-01-20 22:51:46.000000000 -0800
++++ colors/calmar256-light.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -4,19 +4,7 @@
+ " Maintainer:: calmar <mac@calmar.ws>
+ "
+ " for a 256 color capable terminal like xterm-256color, ... or gvim as well
+-" "{{{
+-" it only works in such a terminal and when you have:
+-" set t_Co=256
+-" in your vimrc"}}}
+-
+-" {{{ t_Co=256 is set - check 
+-if &t_Co != 256 && ! has("gui_running")
+-    echomsg ""
+-    echomsg "write 'set t_Co=256' in your .vimrc or this file won't load"
+-    echomsg ""
+-    finish
+-endif
+-" }}}
++
+ " {{{ reset colors and set colors_name and store cpo setting
+ set background=dark
+ hi clear
+@@ -93,7 +81,7 @@
+             \ ["Title",         "bold", "18",   "",     "",         ""   ],
+             \ ["Visual",        "",     "",     "220",  "",         ""   ],
+             \ ["Comment",       "",     "21",   "255",  "",         ""   ],
+-            \ ["Costant",       "",     "58",   "",     "",         ""   ],
++            \ ["Constant",      "",     "58",   "",     "",         ""   ],
+             \ ["String",        "",     "160",  "",     "",         ""   ],
+             \ ["Error",         "",     "130",  "",     "",         ""   ],
+             \ ["Identifier",    "",     "31",   "",     "",         ""   ],
+@@ -129,7 +117,7 @@
+ " {{{ change empty fields to "NONE"
+ 
+ for s:col in s:colors256
+-    for i in  [1, 2, 3, 4, 5]
++    for i in  [1, 2, 3, 5]
+         if s:col[i] == "" 
+             let s:col[i] = "NONE"
+         endif
+@@ -137,7 +125,7 @@
+ endfor
+ 
+ for s:col in s:colorvim7
+-    for i in  [1, 2, 3, 4, 5]
++    for i in  [1, 2, 3, 5]
+         if s:col[i] == "" 
+             let s:col[i] = "NONE"
+         endif
+@@ -171,7 +159,6 @@
+ endfunction
+ " }}}
+ " {{{ color setup for terminal
+-if ! has("gui_running")
+     for s:col in s:colors256
+         exec "hi ".s:col[0]." cterm=".s:col[1]." ctermfg=".s:col[2]." ctermbg=".s:col[3]
+     endfor
+@@ -180,7 +167,6 @@
+             exec "hi ".s:col[0]." cterm=".s:col[1]." ctermfg=".s:col[2]." ctermbg=".s:col[3]
+         endfor
+     endif
+-else
+ " }}}
+     " color-mapping array {{{
+     " number of vim colors and #html colors equivalent for gui
+@@ -241,7 +227,6 @@
+             call s:guisetcolor(s:col)
+         endfor
+     endif
+-endif
+ " }}}
+ let &cpo = s:save_cpo   " restoring &cpo value
+ " vim: set fdm=marker fileformat=unix:
+diff -u -r colors-orig/candycode.vim colors/candycode.vim
+--- colors-orig/candycode.vim	2010-01-20 22:48:12.000000000 -0800
++++ colors/candycode.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -6,7 +6,7 @@
+ highlight clear
+ let g:colors_name="candycode"
+ 
+-let save_cpo = &cpo
++let s:save_cpo = &cpo
+ set cpo&vim
+ 
+ " basic highlight groups (:help highlight-groups) {{{
+@@ -169,6 +169,6 @@
+ 
+ " }}}
+ 
+-let &cpo = save_cpo
++let &cpo = s:save_cpo
+ 
+ " vim: fdm=marker fdl=0
+diff -u -r colors-orig/chocolateliquor.vim colors/chocolateliquor.vim
+--- colors-orig/chocolateliquor.vim	2010-01-20 22:49:08.000000000 -0800
++++ colors/chocolateliquor.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -14,7 +14,7 @@
+ if exists("syntax_on")
+   syntax reset
+ endif
+-let g:colors_name = "ChocolateLiquor"
++let g:colors_name = "chocolateliquor"
+ 
+ hi Normal guibg=#3f1f1f guifg=PapayaWhip ctermfg=White
+ hi NonText guibg=#1f0f0f guifg=Brown2 ctermfg=Brown ctermbg=Black
+diff -u -r colors-orig/colorer.vim colors/colorer.vim
+--- colors-orig/colorer.vim	2010-01-20 22:52:38.000000000 -0800
++++ colors/colorer.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -17,7 +17,7 @@
+ hi Comment	        ctermfg=Brown guifg=#B46918	gui=NONE
+ hi PerlPOD	        ctermfg=Brown guifg=#B86A18	gui=NONE
+ hi Constant	        ctermfg=White guifg=White gui=NONE
+-hi Charachter	    ctermfg=Yellow guifg=Yellow	gui=NONE
++hi Character	    ctermfg=Yellow guifg=Yellow	gui=NONE
+ hi String           ctermfg=Yellow guifg=Yellow	gui=NONE
+ hi Number	        ctermfg=White guifg=White gui=NONE
+ hi Boolean	        ctermfg=Cyan guifg=DarkGray	gui=NONE
+diff -u -r colors-orig/dante.vim colors/dante.vim
+--- colors-orig/dante.vim	2010-01-20 22:48:32.000000000 -0800
++++ colors/dante.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -6,6 +6,7 @@
+ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ " Colorscheme Option:
+ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
++set background=dark
+ hi clear
+ if exists("syntax on")
+ 	syntax reset
+diff -u -r colors-orig/darkbone.vim colors/darkbone.vim
+--- colors-orig/darkbone.vim	2010-01-20 22:55:04.000000000 -0800
++++ colors/darkbone.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -62,7 +62,7 @@
+ hi VisualNOS	guifg=#a0a0c0 guibg=#000000
+ 
+ hi Number	guifg=#d0e080 guibg=#000000
+-hi Char		guifg=#d0e080 guibg=#000000
++hi Character	guifg=#d0e080 guibg=#000000
+ hi String	guifg=#d0e080 guibg=#000000
+ 
+ hi Boolean	guifg=#d0e080 guibg=#000000
+diff -u -r colors-orig/darkspectrum.vim colors/darkspectrum.vim
+--- colors-orig/darkspectrum.vim	2010-01-20 22:44:56.000000000 -0800
++++ colors/darkspectrum.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -9,9 +9,9 @@
+ " :he highlight-groups
+ " :he cterm-colors
+ 
++set background=dark
+ hi clear
+ 
+-set background=dark
+ if version > 580
+     " no guarantees for version 5.8 and below, but this makes it stop
+     " complaining
+@@ -51,7 +51,7 @@
+ hi LineNr		guifg=#535353 guibg=#202020
+ hi NonText		guifg=#535353 guibg=#202020
+ hi Folded		guifg=#535353 guibg=#202020 gui=bold
+-hi FoldeColumn  guifg=#535353 guibg=#202020 gui=bold
++hi FoldColumn  guifg=#535353 guibg=#202020 gui=bold
+ "hi VertSplit	guibg=#ffffff guifg=#ffffff gui=none
+ 
+ hi VertSplit	guibg=#3C3C3C guifg=#3C3C3C gui=none
+@@ -102,14 +102,14 @@
+ hi spellLocal   guisp=#729fcf
+ 
+ hi link cppSTL          Function
+-hi link Error			Todo
++hi! link Error			Todo
+ hi link Character		Number
+ hi link rubySymbol		Number
+ hi link htmlTag			htmlEndTag
+ "hi link htmlTagName     htmlTag
+ hi link htmlLink		Underlined
+ hi link pythonFunction	Identifier
+-hi link Question		Type
++hi! link Question		Type
+ hi link CursorIM		Cursor
+ hi link VisualNOS		Visual
+ hi link xmlTag			Identifier
+diff -u -r colors-orig/darkZ.vim colors/darkZ.vim
+--- colors-orig/darkZ.vim	2010-01-20 22:51:50.000000000 -0800
++++ colors/darkZ.vim	2011-01-14 10:19:55.000000000 -0800
+@@ -29,7 +29,7 @@
+ hi SpecialKey   guifg=cyan           gui=none
+ hi StatusLine   guifg=black          guibg=Pink		gui=bold
+ hi StatusLineNC guifg=grey           guibg=gray40		gui=none
+-hi Title        guifg=#ff4400        gui=none			gui=bold
++hi Title        guifg=#ff4400        gui=bold
+ hi Visual       guifg=gray17         guibg=tan1			gui=none
+ hi WarningMsg   guifg=salmon         gui=none
+ hi Pmenu        guifg=white          guibg=#445599		gui=none
+diff -u -r colors-orig/earendel.vim colors/earendel.vim
+--- colors-orig/earendel.vim	2010-01-20 22:48:38.000000000 -0800
++++ colors/earendel.vim	2011-01-13 22:58:18.000000000 -0800
+@@ -6,8 +6,6 @@
+ 
+ let colors_name = "earendel"
+ 
+-execute "command! -nargs=1 Colo set background=<args>"
+-
+ if &background == "light"
+     hi Normal ctermbg=15 ctermfg=0 guibg=#ffffff guifg=#000000 gui=none
+ 
+diff -u -r colors-orig/eclipse.vim colors/eclipse.vim
+--- colors-orig/eclipse.vim	2010-01-20 23:43:36.000000000 -0800
++++ colors/eclipse.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -74,19 +74,4 @@
+ highlight String     gui=none guifg=#8010a0 guibg=bg      ctermfg=Yellow
+ highlight Number     gui=none guifg=#0000ff guibg=bg      ctermfg=White
+ 
+-if !has("gui_running")
+-    hi link Float          Number
+-    hi link Conditional    Repeat
+-    hi link Include        PreProc
+-    hi link Macro          PreProc
+-    hi link PreCondit      PreProc
+-    hi link StorageClass   Type
+-    hi link Structure      Type
+-    hi link Typedef        Type
+-    hi link Tag            Special
+-    hi link Delimiter      Normal
+-    hi link SpecialComment Special
+-    hi link Debug          Special
+-endif
+-
+ " vim:ff=unix:
+diff -u -r colors-orig/ekvoli.vim colors/ekvoli.vim
+--- colors-orig/ekvoli.vim	2010-01-20 22:49:14.000000000 -0800
++++ colors/ekvoli.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -7,7 +7,7 @@
+ 
+ 
+ highlight clear Normal
+-set background&
++set background=dark
+ 
+ " Remove all existing highlighting and set the defaults.
+ highlight clear
+diff -u -r colors-orig/fine_blue2.vim colors/fine_blue2.vim
+--- colors-orig/fine_blue2.vim	2009-06-04 20:52:14.000000000 -0700
++++ colors/fine_blue2.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -10,7 +10,7 @@
+    syntax reset
+ endif
+ 
+-let colors_name = "fine_blue"
++let colors_name = "fine_blue2"
+ 
+ hi Normal       guifg=#404048 guibg=#f8f8f8
+ 
+diff -u -r colors-orig/golden.vim colors/golden.vim
+--- colors-orig/golden.vim	2010-01-20 22:49:06.000000000 -0800
++++ colors/golden.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -7,8 +7,8 @@
+ "     URL: http://www.trolocsis.com/vim/golden.vim
+ "
+ 
+-hi clear
+ set background=dark
++hi clear
+ if exists("syntax_on")
+   syntax reset
+ endif
+@@ -43,7 +43,7 @@
+ hi VertSplit      guifg=#2E2E2E guibg=#978345 ctermfg=black ctermbg=darkgrey
+ hi Folded		  guifg=orange  guibg=#2E2E2E ctermfg=yellow
+ 
+-hi link IncSearch		Visual
++hi! link IncSearch		Visual
+ hi link String			Constant
+ hi link Character		Constant
+ hi link Number			Constant
+diff -u -r colors-orig/guardian.vim colors/guardian.vim
+--- colors-orig/guardian.vim	2010-01-20 22:55:20.000000000 -0800
++++ colors/guardian.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -23,16 +23,16 @@
+ hi Directory   guibg=bg	      guifg=#337700  gui=none ctermbg=bg ctermfg=10
+ 
+ hi IncSearch   guibg=#0066cc  guifg=white    gui=none ctermbg=1 ctermfg=15
+-hi link Seach IncSearch
++hi! link Search IncSearch
+ 
+ hi SpecialKey  guibg=bg	guifg=fg       gui=none ctermbg=bg ctermfg=fg
+ hi Titled      guibg=bg	guifg=fg       gui=none ctermbg=bg ctermfg=fg
+ 
+ hi ErrorMsg    guibg=bg	guifg=#ff0000  gui=bold ctermbg=bg ctermfg=12
+ hi ModeMsg     guibg=bg	guifg=#ffeecc  gui=none ctermbg=bg ctermfg=14
+-hi link	 MoreMsg     ModeMsg
++hi! link	 MoreMsg     ModeMsg
+ hi Question    guibg=bg	guifg=#ccffcc  gui=bold ctermbg=bg ctermfg=10
+-hi link	 WarningMsg  ErrorMsg
++hi! link	 WarningMsg  ErrorMsg
+ 
+ hi StatusLine	  guibg=#ffeecc	 guifg=black	gui=bold ctermbg=14 ctermfg=0
+ hi StatusLineNC	  guibg=#cc4455	 guifg=white	gui=none ctermbg=4  ctermfg=11
+@@ -98,6 +98,5 @@
+ 
+ " And finally.
+ 
+-let g:colors_name = "Guardian"
+-let colors_name   = "Guardian"
++let g:colors_name = "guardian"
+ 
+diff -u -r colors-orig/habilight.vim colors/habilight.vim
+--- colors-orig/habilight.vim	2010-01-20 22:49:28.000000000 -0800
++++ colors/habilight.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -16,7 +16,7 @@
+ if exists("syntax_on")
+   syntax reset
+ endif
+-let g:colors_name = "habiLight"
++let g:colors_name = "habilight"
+ 
+ " Normal {{{1
+ hi Normal ctermfg=black ctermbg=NONE guifg=black guibg=#F9F5F9
+@@ -118,7 +118,7 @@
+     highlight SpellBad    term=reverse   ctermbg=12 gui=undercurl guisp=Red
+     highlight SpellCap    term=reverse   ctermbg=9  gui=undercurl guisp=Blue
+     highlight SpellRare   term=reverse   ctermbg=13 gui=undercurl guisp=Magenta
+-    highlight SpellLocale term=underline ctermbg=11 gui=undercurl guisp=DarkCyan
++    highlight SpellLocal  term=underline ctermbg=11 gui=undercurl guisp=DarkCyan
+ endif 
+ 
+ " Completion {{{1
+diff -u -r colors-orig/herald.vim colors/herald.vim
+--- colors-orig/herald.vim	2010-01-20 23:43:36.000000000 -0800
++++ colors/herald.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -4,6 +4,8 @@
+ " Version:    0.2.0
+ " Notes:      Supports 8, 16, 256 and 16,777,216 (RGB) color modes
+ 
++set background=dark
++
+ hi clear
+ 
+ if exists("syntax_on")
+@@ -12,12 +14,7 @@
+ 
+ let colors_name = "herald"
+ 
+-set background=dark
+-
+-" Set some syntax-related variables
+-let ruby_operators = 1
+-
+-if has("gui_running")
++" GUI portion
+ 
+ 	" -> Text; Miscellaneous
+ 	hi Normal         guibg=#1F1F1F guifg=#D0D0D0 gui=none
+@@ -104,7 +101,8 @@
+ 	hi htmlUnderline            guibg=#1F1F1F guifg=#D0D0D0 gui=underline
+ 	hi htmlUnderlineItalic      guibg=#1F1F1F guifg=#D0D0D0 gui=underline,italic
+ 
+-elseif &t_Co == 256
++" Terminal portion
++if &t_Co == 256
+ 
+ 	" -> Text; Miscellaneous
+ 	hi Normal         ctermbg=234  ctermfg=252   cterm=none
+diff -u -r colors-orig/inkpot.vim colors/inkpot.vim
+--- colors-orig/inkpot.vim	2010-01-20 22:44:14.000000000 -0800
++++ colors/inkpot.vim	2011-01-16 10:11:12.000000000 -0800
+@@ -46,7 +46,7 @@
+     let g:inkpot_black_background = 0
+ endif
+ 
+-if has("gui_running")
++" GUI portion
+     if ! g:inkpot_black_background
+         hi Normal         gui=NONE   guifg=#cfbfad   guibg=#1e1e27
+     else
+@@ -140,7 +140,7 @@
+ 
+         hi MatchParen   gui=NONE      guifg=#cfbfad   guibg=#4e4e8f
+     endif
+-else
++" Terminal portion
+     if ! g:inkpot_black_background
+         exec "hi Normal         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(80)
+     else
+@@ -211,6 +211,5 @@
+         exec "hi SpellCap       cterm=NONE ctermbg=" . <SID>X(21)
+         exec "hi MatchParen     cterm=NONE ctermbg=" . <SID>X(14) . "ctermfg=" . <SID>X(25)
+     endif
+-endif
+ 
+ " vim: set et :
+diff -u -r colors-orig/ironman.vim colors/ironman.vim
+--- colors-orig/ironman.vim	2010-01-20 23:43:36.000000000 -0800
++++ colors/ironman.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -124,7 +124,7 @@
+ highlight SpellBad           gui=undercurl guisp=Red
+ highlight SpellCap           gui=undercurl guisp=Blue
+ highlight SpellRare          gui=undercurl guisp=Magenta
+-highlight SpellLocale        gui=undercurl guisp=DarkCyan
++highlight SpellLocal         gui=undercurl guisp=DarkCyan
+ 
+ " Completion {{{1
+ highlight Pmenu              guifg=Black   guibg=#BDDFFF
+diff -u -r colors-orig/jellybeans.vim colors/jellybeans.vim
+--- colors-orig/jellybeans.vim	2010-01-20 22:48:48.000000000 -0800
++++ colors/jellybeans.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -343,7 +343,7 @@
+ 
+ call s:X("Directory","dad085","","","","")
+ call s:X("ErrorMsg","","902020","","","")
+-hi link Error ErrorMsg
++hi! link Error ErrorMsg
+ 
+ " Diff
+ 
+diff -u -r colors-orig/kellys.vim colors/kellys.vim
+--- colors-orig/kellys.vim	2010-01-20 22:54:08.000000000 -0800
++++ colors/kellys.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -40,7 +40,7 @@
+ 
+ " tabline
+ 
+-if has("gui_running")
++" GUI portion
+ 	hi Comment		guifg=#67686b	guibg=#2a2b2f	gui=none
+ 	hi Cursor 		guifg=#2a2b2f	guibg=#e1e0e5	gui=none
+ 	hi Constant 	guifg=#d1c79e	guibg=#2a2b2f	gui=none
+@@ -68,7 +68,7 @@
+ 	hi Underlined	guifg=#e1e0e5	guibg=#2a2b2f	gui=underline
+ 	hi Visual		guifg=#2a2b2f	guibg=#e1e0e5	gui=none
+ 	hi Wildmenu		guifg=#62acce	guibg=#2a2b2f	gui=bold
+-else
++" Terminal portion
+ 	if &t_Co == 256
+ 		hi Comment		ctermfg=239	ctermbg=235	cterm=none
+ 		hi Cursor 		ctermfg=235	ctermbg=254	cterm=none
+@@ -98,7 +98,6 @@
+ 		hi Visual		ctermfg=235	ctermbg=254	cterm=none
+ 		hi Wildmenu		ctermfg=81	ctermbg=234	cterm=bold
+ 	endif
+-endif
+ 
+ hi! link Boolean		Constant
+ hi! link Character		Constant
+diff -u -r colors-orig/leo.vim colors/leo.vim
+--- colors-orig/leo.vim	2009-06-04 20:53:28.000000000 -0700
++++ colors/leo.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -50,16 +50,6 @@
+ " Folding done
+ " All in 256 code
+ 
+-if !has("gui_running")
+-        if &t_Co != 256
+-                echomsg "err: Please use a 256-colors terminal (so that t_Co=256 could be set)."
+-                echomsg ""
+-                finish
+-        end
+-endif
+-
+-let g:colors_name = "leo256"
+-
+ set background=dark
+ if v:version > 580
+         highlight clear
+@@ -68,6 +58,8 @@
+         endif
+ endif
+ 
++let g:colors_name = "leo"
++
+ " Normal should come first
+ hi Normal                               cterm=none              ctermfg=255             ctermbg=16 guibg=#000000 guifg=#ffffff
+ hi CursorLine           cterm=none              ctermbg=16              guibg=#101010
+diff -u -r colors-orig/lettuce.vim colors/lettuce.vim
+--- colors-orig/lettuce.vim	2010-01-20 22:48:54.000000000 -0800
++++ colors/lettuce.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -26,8 +26,10 @@
+ let g:colors_name="lettuce"
+ 
+ 
+-augroup Syntax_extensions
++augroup Lettuce
+     au!
++    au ColorScheme * if get(g:, "colors_name", "") != "lettuce"|exec "au! Lettuce"|endif
++
+     au Syntax c,cpp,ruby,javascript syn match Operator "[*/%&|!=><^~,.;:?+-]\+" display contains=TOP
+     au Syntax c,cpp syn region cParen matchgroup=Operator transparent start='(' end=')' contains=ALLBUT,@cParenGroup,cCppParen,cErrInBracket,cCppBracket,cCppString,@Spell
+     au Syntax c,cpp syn region cCppParen matchgroup=Operator transparent start='(' skip='\\$' excludenl end=')' end='$' contained contains=ALLBUT,@cParenGroup,cErrInBracket,cParen,cBracket,cString,@Spell
+@@ -44,17 +46,23 @@
+ augroup END
+ 
+ 
+-if !has("gui_running")
++" Terminal parts
+ 
+ hi rubyGlobalVariable       cterm=none                   ctermfg=64
+ hi rubyPredefinedIdentifier cterm=bold                   ctermfg=64
+ hi def link rubyStringDelimiter String
+ 
+ hi Normal           cterm=none       ctermbg=232 ctermfg=189
+-hi StatusLine       cterm=none       ctermbg=236 ctermfg=231
++hi StatusLineNormal cterm=none       ctermbg=236 ctermfg=231
++hi StatusLineInsert cterm=none       ctermbg=52  ctermfg=231
++hi StatusLineCmdwin cterm=none       ctermbg=22  ctermfg=231
+ hi StatusLineNC     cterm=none       ctermbg=236 ctermfg=103
+-hi User1            cterm=bold       ctermbg=236 ctermfg=223
+-hi User2            cterm=none       ctermbg=236 ctermfg=240
++hi User1Normal      cterm=bold       ctermbg=236 ctermfg=223
++hi User1Insert      cterm=bold       ctermbg=52  ctermfg=223
++hi User1Cmdwin      cterm=bold       ctermbg=22  ctermfg=223
++hi User2Normal      cterm=none       ctermbg=236 ctermfg=240
++hi User2Insert      cterm=none       ctermbg=52  ctermfg=240
++hi User2Cmdwin      cterm=none       ctermbg=22  ctermfg=240
+ hi VertSplit        cterm=none       ctermbg=236 ctermfg=103
+ hi TabLine          cterm=none       ctermbg=236 ctermfg=145
+ hi TabLineFill      cterm=none       ctermbg=236
+@@ -114,31 +122,23 @@
+ 
+ hi OperatorCurlyBrackets cterm=bold ctermfg=75
+ 
+-" highlight modes
+-autocmd InsertEnter * hi StatusLine ctermbg=52
+-autocmd InsertEnter * hi User1      ctermbg=52
+-autocmd InsertEnter * hi User2      ctermbg=52
+-autocmd InsertLeave * hi User2      ctermbg=236
+-autocmd InsertLeave * hi User1      ctermbg=236
+-autocmd InsertLeave * hi StatusLine ctermbg=236
+-autocmd CmdwinEnter * hi StatusLine ctermbg=22
+-autocmd CmdwinEnter * hi User1      ctermbg=22
+-autocmd CmdwinEnter * hi User2      ctermbg=22
+-autocmd CmdwinLeave * hi User2      ctermbg=236
+-autocmd CmdwinLeave * hi User1      ctermbg=236
+-autocmd CmdwinLeave * hi StatusLine ctermbg=236
+-
+-else
++" GUI parts
+ 
+ hi rubyGlobalVariable       gui=none                   guifg=#5f8700
+ hi rubyPredefinedIdentifier gui=bold                   guifg=#5f8700
+ hi def link rubyStringDelimiter String
+ 
+ hi Normal           gui=none       guibg=#080808 guifg=#dfdfff
+-hi StatusLine       gui=none       guibg=#303030 guifg=#ffffff
++hi StatusLineNormal gui=none       guibg=#303030 guifg=#ffffff
++hi StatusLineInsert gui=none       guibg=#5f0000 guifg=#ffffff
++hi StatusLineCmdwin gui=none       guibg=#005f00 guifg=#ffffff
+ hi StatusLineNC     gui=none       guibg=#303030 guifg=#8787af
+-hi User1            gui=bold       guibg=#303030 guifg=#ffdfaf
+-hi User2            gui=none       guibg=#303030 guifg=#585858
++hi User1Normal      gui=bold       guibg=#303030 guifg=#ffdfaf
++hi User1Insert      gui=bold       guibg=#5f0000 guifg=#ffdfaf
++hi User1Cmdwin      gui=bold       guibg=#005f00 guifg=#ffdfaf
++hi User2Normal      gui=none       guibg=#303030 guifg=#585858
++hi User2Insert      gui=none       guibg=#5f0000 guifg=#585858
++hi User2Cmdwin      gui=none       guibg=#005f00 guifg=#585858
+ hi VertSplit        gui=none       guibg=#303030 guifg=#8787af
+ hi TabLine          gui=none       guibg=#303030 guifg=#afafaf
+ hi TabLineFill      gui=none       guibg=#303030
+@@ -198,18 +198,25 @@
+ 
+ hi OperatorCurlyBrackets gui=bold guifg=#5fafff
+ 
+-" highlight modes
+-autocmd InsertEnter * hi StatusLine guibg=#5f0000
+-autocmd InsertEnter * hi User1      guibg=#5f0000
+-autocmd InsertEnter * hi User2      guibg=#5f0000
+-autocmd InsertLeave * hi User2      guibg=#303030
+-autocmd InsertLeave * hi User1      guibg=#303030
+-autocmd InsertLeave * hi StatusLine guibg=#303030
+-autocmd CmdwinEnter * hi StatusLine guibg=#005f00
+-autocmd CmdwinEnter * hi User1      guibg=#005f00
+-autocmd CmdwinEnter * hi User2      guibg=#005f00
+-autocmd CmdwinLeave * hi User2      guibg=#303030
+-autocmd CmdwinLeave * hi User1      guibg=#303030
+-autocmd CmdwinLeave * hi StatusLine guibg=#303030
++" Make sure these are cleared so links work
++hi clear StatusLine
++hi clear User1
++hi clear User2
++
++hi link StatusLine StatusLineNormal
++hi link User1 User1Normal
++hi link User2 User2Normal
++
++function! s:ModeChange(mode)
++    exec "hi link StatusLine StatusLine" . a:mode
++    exec "hi link User1 User1" . a:mode
++    exec "hi link User2 User2" . a:mode
++    redrawstatus
++endfunction
+ 
+-end
++augroup Lettuce
++" highlight modes
++autocmd InsertEnter * call s:ModeChange("Insert")
++autocmd CmdwinEnter * call s:ModeChange("Cmdwin")
++autocmd CmdwinLeave,InsertLeave * call s:ModeChange("Normal")
++augroup END
+diff -u -r colors-orig/lucius.vim colors/lucius.vim
+--- colors-orig/lucius.vim	2010-01-20 22:44:46.000000000 -0800
++++ colors/lucius.vim	2011-01-14 10:20:48.000000000 -0800
+@@ -210,8 +210,8 @@
+ hi CursorColumn     guifg=NONE              guibg=#202438           gui=none
+ hi CursorColumn     ctermfg=NONE            ctermbg=236             cterm=none
+ " cursor line/row
+-hi CursorLine       gui=NONE                guibg=#202438           gui=none
+-hi CursorLine       cterm=NONE              ctermbg=236             cterm=none
++hi CursorLine       gui=NONE                guibg=#202438
++hi CursorLine       cterm=NONE              ctermbg=236
+ 
+ 
+ " Misc
+diff -u -r colors-orig/manxome.vim colors/manxome.vim
+--- colors-orig/manxome.vim	2010-01-20 22:45:48.000000000 -0800
++++ colors/manxome.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -6,8 +6,8 @@
+ """ suggested vim editing options: tw=0 ts=4 sw=4
+ 
+ ""  clear and re-initialize global variables
+-hi clear
+ set background=dark
++hi clear
+ if exists("syntax_on")
+   syntax reset
+ endif
+@@ -36,7 +36,7 @@
+ highlight Special		ctermfg=7	ctermbg=none	cterm=bold	guifg=#ffffff	guibg=#000000	gui=none
+ highlight Underlined	ctermfg=2	ctermbg=none	cterm=none	guifg=#00aa00	guibg=#000000	gui=none
+ highlight Ignore		ctermfg=0	ctermbg=none	cterm=bold  guifg=#aaaaaa	guibg=#000000	gui=none
+-highlight Error			ctermfg=1	ctermbg=none	cterm=bold	guibg=#ff0000	guibg=#000000	gui=none
++highlight Error			ctermfg=1	ctermbg=none	cterm=bold	guifg=#ff0000	guibg=#000000	gui=none
+ highlight Todo		 	ctermfg=3	ctermbg=none	cterm=none	guifg=#aaaa00	guibg=#000000	gui=none
+ 
+ "  set syntax-specific groups
+diff -u -r colors-orig/marklar.vim colors/marklar.vim
+--- colors-orig/marklar.vim	2010-01-20 22:48:24.000000000 -0800
++++ colors/marklar.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -13,8 +13,8 @@
+ "                then load it with :colorscheme marklar
+ " ------------------------------------------------------------------
+ 
+-hi clear
+ set background=dark
++hi clear
+ if exists("syntax_on")
+     syntax reset
+ endif
+@@ -168,6 +168,14 @@
+             endif
+         endfunction
+         command! -nargs=*  Marklar  :call s:Marklar(<f-args>)
++        augroup Marklar
++            autocmd!
++            autocmd ColorScheme *
++                \ if get(g:, "colors_name", "") != "marklar"|
++                \     delcommand Marklar|
++                \     exec "autocmd! Marklar"|
++                \ endif
++        augroup END
+     endif
+ endif
+ 
+diff -u -r colors-orig/martin_krischik.vim colors/martin_krischik.vim
+--- colors-orig/martin_krischik.vim	2010-01-20 22:49:18.000000000 -0800
++++ colors/martin_krischik.vim	2011-01-14 10:27:30.000000000 -0800
+@@ -36,7 +36,7 @@
+    "
+    " }}}1
+    finish
+-elseif (&term == "builtin_gui")
++endif
+     " Section: Set GUI colors. {{{1
+     "
+     " Subsection: User-Interface Colors {{{2
+@@ -88,7 +88,7 @@
+     "
+     highlight Pmenu							    guibg=Grey
+     highlight PmenuSel					guifg=White	    guibg=firebrick
+-    highlight PmenuSbar					guibg=LightGrey	    guibg=DarkGrey
++    highlight PmenuSbar							    guibg=DarkGrey
+     highlight PmenuThumb	gui=reverse
+     highlight WildMenu					guifg=White	    guibg=firebrick
+     "
+@@ -200,31 +200,37 @@
+     "
+     " Group: Text Cursor {{{3
+     "
+-    set guicursor=n:block-lCursor,
+-		 \i:ver25-Cursor,
+-		 \r:hor25-Cursor,
+-		 \v:block-vCursor,
+-		\ve:ver35-vCursor,
+-		 \o:hor50-oCursor-blinkwait75-blinkoff50-blinkon75,
+-		 \c:block-cCursor,
+-		\ci:ver20-cCursor,
+-		\cr:hor20-cCursor,
+-		\sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
++    if !exists("s:save_guicursor")
++        let s:save_guicursor = &guicursor
++        set guicursor=n:block-lCursor,
++                     \i:ver25-Cursor,
++                     \r:hor25-Cursor,
++                     \v:block-vCursor,
++                    \ve:ver35-vCursor,
++                     \o:hor50-oCursor-blinkwait75-blinkoff50-blinkon75,
++                     \c:block-cCursor,
++                    \ci:ver20-cCursor,
++                    \cr:hor20-cCursor,
++                    \sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
++        augroup MartinKrischik
++            autocmd!
++            autocmd ColorScheme *
++                \ if get(g:, "colors_name", "") != "martin_krischik"|
++                \     let &guicursor = s:save_guicursor|
++                \     unlet s:save_guicursor|
++                \     exec "autocmd! MartinKrischik"|
++                \ endif
++        augroup END
++    endif
+ 
+    syntax enable
+ 
+    " }}}1
+-   finish
+-elseif	(&term == "xterm")  ||
++if	(&term == "xterm")  ||
+       \ (&term == "vt320")  ||
+       \ (&term == "linux")
+     " Section: Only set colors for terminals we actualy know of {{{1
+     "
+-    if &term=="vt320"
+-	set t_Co=8
+-    else
+-	set t_Co=16
+-    endif
+ 
+     " Subsection: User Interface Colors {{{2
+     "
+@@ -378,14 +384,6 @@
+     syntax enable
+ 
+    " }}}1
+-    finish
+-else
+-   " Section: terminal is completely unknown - fallback to system default {{{1
+-   "
+-   set t_Co=8
+-
+-   " }}}1
+-   finish
+ endif
+ 
+ "------------------------------------------------------------------------------
+diff -u -r colors-orig/molokai.vim colors/molokai.vim
+--- colors-orig/molokai.vim	2010-01-20 22:48:40.000000000 -0800
++++ colors/molokai.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -7,9 +7,9 @@
+ " by Hamish Stuart Macpherson
+ "
+ 
++set background=dark
+ hi clear
+ 
+-set background=dark
+ if version > 580
+     " no guarantees for version 5.8 and below, but this makes it stop
+     " complaining
+diff -u -r colors-orig/moria.vim colors/moria.vim
+--- colors-orig/moria.vim	2010-01-20 22:44:28.000000000 -0800
++++ colors/moria.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -16,8 +16,6 @@
+     let s:moria_fontface = "plain"
+ endif
+ 
+-execute "command! -nargs=1 Colo let g:moria_style = \"<args>\" | colo moria"
+-
+ if s:moria_style == "black" || s:moria_style == "dark"
+     set background=dark
+ elseif s:moria_style == "light" || s:moria_style == "white"
+diff -u -r colors-orig/navajo-night.vim colors/navajo-night.vim
+--- colors-orig/navajo-night.vim	2010-01-20 22:45:06.000000000 -0800
++++ colors/navajo-night.vim	2011-01-14 10:30:48.000000000 -0800
+@@ -63,7 +63,7 @@
+ hi VisualNOS term=bold,underline cterm=bold,underline gui=reverse guifg=#414141 guibg=Black
+ hi WarningMsg term=standout ctermfg=darkred gui=bold guifg=Cyan
+ hi WildMenu term=standout ctermfg=White ctermbg=darkyellow guifg=White guibg=Blue
+-hi Folded term=standout ctermfg=darkblue ctermbg=grey guifg=White guibg=NONE guifg=#afcfef
++hi Folded term=standout ctermfg=darkblue ctermbg=grey guibg=NONE guifg=#afcfef
+ hi FoldColumn term=standout ctermfg=darkblue ctermbg=grey guifg=#ffff74 guibg=#3f3f3f
+ hi DiffAdd term=bold ctermbg=darkblue guibg=Black
+ hi DiffChange term=bold ctermbg=darkmagenta guibg=#124a32
+diff -u -r colors-orig/navajo.vim colors/navajo.vim
+--- colors-orig/navajo.vim	2009-06-04 20:44:08.000000000 -0700
++++ colors/navajo.vim	2011-01-14 10:30:47.000000000 -0800
+@@ -39,7 +39,7 @@
+ hi VisualNOS term=bold,underline cterm=bold,underline gui=reverse guifg=Grey guibg=white
+ hi WarningMsg term=standout ctermfg=DarkRed gui=bold guifg=Red
+ hi WildMenu term=standout ctermfg=Black ctermbg=DarkYellow guifg=Black guibg=Yellow
+-hi Folded term=standout ctermfg=DarkBlue ctermbg=Gray guifg=Black guibg=NONE guifg=#907050
++hi Folded term=standout ctermfg=DarkBlue ctermbg=Gray guibg=NONE guifg=#907050
+ hi FoldColumn term=standout ctermfg=DarkBlue ctermbg=Gray guifg=DarkBlue guibg=#c0c0c0
+ hi DiffAdd term=bold ctermbg=DarkBlue guibg=White
+ hi DiffChange term=bold ctermbg=DarkMagenta guibg=#edb5cd
+diff -u -r colors-orig/no_quarter.vim colors/no_quarter.vim
+--- colors-orig/no_quarter.vim	2010-01-20 22:54:02.000000000 -0800
++++ colors/no_quarter.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -87,7 +87,7 @@
+ hi perlSpecialMatch			gui=NONE	guifg=#c864c7	guibg=bg
+ hi perlSpecialBEOM			gui=NONE	guifg=fg		guibg=#404040
+ hi perlStringStartEnd		gui=NONE	guifg=#b07050	guibg=#353535
+-hi perlShellCommand			gui=NONE	guibg=#c090c0	guibg=#424242
++hi perlShellCommand			gui=NONE	guifg=#c090c0	guibg=#424242
+ hi perlOperator				gui=NONE	guifg=#c0c090	guibg=#404040
+ hi perlLabel				gui=NONE	guifg=#c0c090	guibg=#404040
+ hi perlControl				gui=NONE	guifg=#c0c090	guibg=#404040
+diff -u -r colors-orig/papayawhip.vim colors/papayawhip.vim
+--- colors-orig/papayawhip.vim	2010-01-20 22:52:18.000000000 -0800
++++ colors/papayawhip.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -12,7 +12,7 @@
+ if exists("syntax_on")
+   syntax reset
+ endif
+-let g:colors_name = "PapayaWhip"
++let g:colors_name = "papayawhip"
+ 
+ hi Normal guifg=#3f1f1f guibg=PapayaWhip ctermbg=Gray ctermfg=Black
+ hi NonText guibg=Moccasin guifg=Brown ctermfg=Brown
+diff -u -r colors-orig/railscasts2.vim colors/railscasts2.vim
+--- colors-orig/railscasts2.vim	2009-06-04 20:47:18.000000000 -0700
++++ colors/railscasts2.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -15,7 +15,7 @@
+ if exists("syntax_on")
+   syntax reset
+ endif
+-let g:colors_name = "railscasts"
++let g:colors_name = "railscasts2"
+ 
+ " Colors
+ " Brown        #BC9458
+diff -u -r colors-orig/rdark.vim colors/rdark.vim
+--- colors-orig/rdark.vim	2010-01-20 22:45:24.000000000 -0800
++++ colors/rdark.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -4,9 +4,6 @@
+ " Last Change: 2007 Jun 23
+ " Version: 0.6
+ "
+-" Features:
+-"   - let rdark_current_line = 1 if you want to highlight the current line
+-"
+ " Changelog:
+ "   0.5 - fixed the Pmenu colors
+ "   0.6 - added SignColumn colors
+@@ -21,16 +18,13 @@
+ let colors_name = "rdark"
+ 
+ " Current Line
+-if exists('rdark_current_line') && rdark_current_line == 1
+-	set cursorline
+ 	hi CursorLine guibg=#191f21
+-endif
+ 
+ " Default Colors
+ hi Normal guifg=#babdb6 guibg=#1e2426
+ hi NonText guifg=#2c3032 guibg=#2c3032 gui=none
+ hi Cursor guibg=#babdb6
+-hi ICursor guibg=#babdb6
++hi lCursor guibg=#babdb6
+ 
+ " Search
+ hi Search guifg=#2e3436 guibg=#fcaf3e
+diff -u -r colors-orig/rootwater.vim colors/rootwater.vim
+--- colors-orig/rootwater.vim	2010-01-20 22:52:12.000000000 -0800
++++ colors/rootwater.vim	2011-01-14 10:32:37.000000000 -0800
+@@ -60,7 +60,7 @@
+ hi WildMenu	guifg=#3a553a	guibg=#77dd88
+ 
+ hi Number	guifg=#77dd88
+-hi Char		guifg=#77dd88
++hi Character	guifg=#77dd88
+ hi String	guifg=#77dd88
+ hi Boolean	guifg=#77dd88
+ hi Comment	guifg=#656565
+@@ -89,7 +89,7 @@
+   hi PmenuSbar	guibg=#202530
+ 
+   hi TabLine	  guifg=#446644	guibg=black	gui=None
+-  hi TabLineFill  guibg=#232729	guibg=#232729	gui=None
++  hi TabLineFill  guibg=#232729	gui=None
+   hi TabLineSel	  guifg=#88ee99	guibg=black	gui=None
+ endif
+ 
+diff -u -r colors-orig/sienna.vim colors/sienna.vim
+--- colors-orig/sienna.vim	2010-01-20 22:47:26.000000000 -0800
++++ colors/sienna.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -14,9 +14,6 @@
+ " let g:sienna_style = 'light'
+ "
+ " If none of above lines is given, the light style is choosen.
+-"
+-" You can switch between these styles by using the :Colo command, like
+-" :Colo dark or :Colo light (many thanks to Pan Shizhu).
+ 
+ if exists("g:sienna_style")
+     let s:sienna_style = g:sienna_style
+@@ -24,8 +21,6 @@
+     let s:sienna_style = 'light'
+ endif
+ 
+-execute "command! -nargs=1 Colo let g:sienna_style = \"<args>\" | colo sienna"
+-
+ if s:sienna_style == 'dark'
+     set background=dark
+ elseif s:sienna_style == 'light'
+diff -u -r colors-orig/silent.vim colors/silent.vim
+--- colors-orig/silent.vim	2010-01-20 22:49:40.000000000 -0800
++++ colors/silent.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -1,13 +1,13 @@
+ " Vim color file
+ " @Author: Pascal Vasilii <jabberroid@gmail.com>	
+ 
++set background=light
+ hi clear
+ if exists("syntax_on")
+   syntax reset
+ endif
+ 
+ let g:colors_name = "silent"
+-set background=light
+ 
+ hi Cursor           guibg=#0057ae	guifg=white		gui=NONE
+ hi LineNr           guibg=#F1FFC1	guifg=DarkGray	gui=bold,italic 
+@@ -89,7 +89,7 @@
+ 
+ " -> 
+ hi Structure		guibg=white 	guifg=black		gui=none
+-hi Chatacter		guibg=white 	guifg=black		gui=none
++hi Character		guibg=white 	guifg=black		gui=none
+ " dark red #D80000
+ hi Float			guibg=#CCFFCC	guifg=blue		gui=NONE
+ hi Macro			guibg=white		guifg=black		gui=bold
+diff -u -r colors-orig/simpleandfriendly.vim colors/simpleandfriendly.vim
+--- colors-orig/simpleandfriendly.vim	2010-01-20 23:43:36.000000000 -0800
++++ colors/simpleandfriendly.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -20,9 +20,6 @@
+ 
+ let g:colors_name = "simpleandfriendly"
+ 
+-"set the highlighting of the current line to true - then give it a color
+-"delete next line to turn off current line highlighting for this color scheme
+-set cul
+ hi cursorline gui=underline 
+ "guibg=grey91 
+ hi visual guibg=grey80 guifg=black
+diff -u -r colors-orig/spring.vim colors/spring.vim
+--- colors-orig/spring.vim	2009-06-04 20:43:32.000000000 -0700
++++ colors/spring.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -11,11 +11,6 @@
+ 
+ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ 
+-if !has("gui_running")
+-    runtime! colors/default.vim
+-    finish
+-endif
+-
+ set background=light
+ 
+ hi clear
+diff -u -r colors-orig/tabula.vim colors/tabula.vim
+--- colors-orig/tabula.vim	2009-06-04 20:53:30.000000000 -0700
++++ colors/tabula.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -24,8 +24,8 @@
+ "   such that text files be displayed other than e.g. c sources
+ " =============================================================================
+ 
+-hi clear
+ set background=dark
++hi clear
+ if exists("syntax_on")
+     syntax reset
+ endif
+diff -u -r colors-orig/tango2.vim colors/tango2.vim
+--- colors-orig/tango2.vim	2010-01-20 22:52:00.000000000 -0800
++++ colors/tango2.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -41,7 +41,7 @@
+ hi Normal guibg=#2E3436 guifg=#eeeeec 
+ hi Cursor gui=none guibg=White guifg=Black
+ 
+-hi Folded guibg=#4D585B guibg=#d2d2d2
++hi Folded guibg=#4D585B guifg=#d2d2d2
+ " No fold column support yet 
+ " hi FoldColumn guifg=Orange guibg=DarkBlue
+ " =============================================================================
+diff -u -r colors-orig/tcsoft.vim colors/tcsoft.vim
+--- colors-orig/tcsoft.vim	2010-01-20 23:43:36.000000000 -0800
++++ colors/tcsoft.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -10,7 +10,7 @@
+ if exists("syntax_on")
+   syntax reset
+ endif
+-let colors_name = "TCSoft"
++let colors_name = "tcsoft"
+ 
+ if version >= 700
+   hi CursorLine                 guibg=#FFFF33  gui=NONE  "hellgelb
+diff -u -r colors-orig/vibrantink.vim colors/vibrantink.vim
+--- colors-orig/vibrantink.vim	2010-01-20 22:45:52.000000000 -0800
++++ colors/vibrantink.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -26,7 +26,7 @@
+ 
+ let g:colors_name = "vibrantink"
+ 
+-if has("gui_running")
++" GUI part
+     highlight Normal guifg=White   guibg=Black
+     highlight Cursor guifg=Black   guibg=Yellow
+     highlight Keyword guifg=#FF6600
+@@ -45,8 +45,7 @@
+     highlight String guifg=#66FF00
+     highlight Search guibg=White
+     highlight CursorLine guibg=#323300
+-else
+-    set t_Co=256
++" Terminal part
+     highlight Normal ctermfg=White ctermbg=Black 
+     highlight Cursor ctermfg=Black ctermbg=Yellow 
+     highlight Keyword ctermfg=202 
+@@ -65,4 +64,3 @@
+     highlight String ctermfg=82 
+     highlight Search ctermbg=White 
+     highlight CursorLine cterm=NONE ctermbg=235
+-endif
+diff -u -r colors-orig/winter.vim colors/winter.vim
+--- colors-orig/winter.vim	2009-06-04 20:44:44.000000000 -0700
++++ colors/winter.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -12,11 +12,6 @@
+ 
+ " Preprocess {{{
+ 
+-if !has("gui_running")
+-    runtime! colors/default.vim
+-    finish
+-endif
+-
+ set background=light
+ 
+ hi clear
+diff -u -r colors-orig/wuye.vim colors/wuye.vim
+--- colors-orig/wuye.vim	2010-01-20 22:48:14.000000000 -0800
++++ colors/wuye.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -6,8 +6,8 @@
+ " URL:         http://www.vim.org/scripts/script.php?script_id=2088
+ 
+ " Init
+-highlight clear
+ set background=dark
++highlight clear
+ if exists("syntax_on")
+    syntax reset
+ endif
+diff -u -r colors-orig/xemacs.vim colors/xemacs.vim
+--- colors-orig/xemacs.vim	2009-06-04 20:53:30.000000000 -0700
++++ colors/xemacs.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -42,5 +42,5 @@
+ hi Type                                 guifg=#4a81b4 gui=NONE
+ hi Ignore                               guifg=grey29
+ hi Todo                                 guibg=gold guifg=black
+-hi WildMenu                     guibg=#b7b7b7 guibg=grey91
++hi WildMenu                     guibg=#b7b7b7 guifg=grey91
+ hi Directory            guibg=#cdcecd guifg=navyblue
+diff -u -r colors-orig/xoria256.vim colors/xoria256.vim
+--- colors-orig/xoria256.vim	2009-06-04 20:53:30.000000000 -0700
++++ colors/xoria256.vim	2011-01-13 22:52:52.000000000 -0800
+@@ -17,13 +17,6 @@
+ 
+ " Bla-bla ----------------------------------------------------------------------
+ 
+-if &t_Co != 256 && ! has("gui_running")
+-  echomsg ""
+-  echomsg "err: please use GUI or a 256-color terminal (so that t_Co=256 could be set)"
+-  echomsg ""
+-  finish
+-endif
+-
+ set background=dark
+ 
+ hi clear

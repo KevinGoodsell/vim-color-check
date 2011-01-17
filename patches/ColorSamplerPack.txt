@@ -1,0 +1,259 @@
+Notes on patches for ColorSamplerPack
+(http://www.vim.org/scripts/script.php?script_id=625)
+
+adaryn.vim
+----------
+* Duplicated ctermfg setting in MoreMsg
+
+adrian.vim
+----------
+* Do "set background" before "hi clear"
+
+astronaut.vim
+-------------
+* "Tag" misspelled as "Tags"
+
+autumn2.vim
+-----------
+* Fix colors_name
+
+autumnleaf.vim
+--------------
+* Force links for MoreMsg and Question
+
+bclear.vim
+----------
+* Do "set background" before "hi clear"
+
+blacksea.vim
+------------
+* Fix colors_name
+
+bluegreen.vim
+-------------
+* Fix colors_name
+
+calmar256-dark.vim
+------------------
+* Remove bad advice about t_Co
+* "Constant" misspelled as "Costant"
+* Don't set gui attributes to "NONE" because this breaks the copying
+  from the cterm attributes.
+* Don't check for gui_running.
+
+calmar256-light.vim
+-------------------
+* Same changes as calmar256-dark.vim
+
+candycode.vim
+-------------
+* Make save_cpo variable script-local
+
+chocolateliquor.vim
+-------------------
+* Fix colors_name
+
+colorer.vim
+-----------
+* "Character" misspelled as "Charachter"
+
+dante.vim
+---------
+* Add "set background"
+
+darkZ.vim
+---------
+* Duplicated gui setting in Title
+
+darkbone.vim
+------------
+* "Character" misspelled as "Char"
+
+darkspectrum.vim
+----------------
+* Do "set background" before "hi clear"
+* "FoldColumn" misspelled as "FoldeColmun"
+* Force links for Error and Question
+
+earendel.vim
+------------
+* Remove unnecessary command
+
+eclipse.vim
+-----------
+* Remove some links that don't have any real effect (not different from
+  the defaults, for some reason only included when not in the GUI)
+
+ekvoli.vim
+----------
+* Set 'background' to reflect the real background color
+
+fine_blue2.vim
+--------------
+* This file is actually an exact copy of fine_blue.vim, so should just
+  be deleted. The patch fixes colors_name to reflect the alternate file
+  name.
+
+golden.vim
+----------
+* Do "set background" before "hi clear"
+* Force link for IncSearch
+
+guardian.vim
+------------
+* Force links for Search, MoreMsg, and WarningMsg
+* Fix colors_name and only set it once
+
+habilight.vim
+-------------
+* Fix colors_name
+* "SpellLocal" misspelled as "SpellLocale"
+
+herald.vim
+----------
+* Do "set background" before "hi clear"
+* Don't change settings for ruby syntax
+* Do gui colors when the GUI isn't running
+
+inkpot.vim
+----------
+* Do gui and cterm colors regardless of whether GUI is running
+
+ironman.vim
+-----------
+* "SpellLocal" misspelled as "SpellLocale"
+
+jellybeans.vim
+--------------
+* Force link for Error
+
+kellys.vim
+----------
+* Do gui and cterm colors regardless of whether GUI is running
+
+leo.vim
+-------
+* Don't check for gui_running or t_Co == 256
+* Set colors_name later so it isn't cleared by "hi clear"
+
+lettuce.vim
+-----------
+* Change augroup name to "Lettuce"
+* Add autocmd to clean up autocmds
+* Do gui and cterm colors regardless of whether GUI is running
+* Combine autocmds for gui and cterm items to just a few autocmds and a
+  function and link them instead of redefining the highlight groups.
+  This is to support plugins that look at the GUI colors only once when
+  the color scheme is loaded.
+
+lucius.vim
+----------
+* Duplicated gui and cterm settings in CursorLine
+
+manxome.vim
+-----------
+* Do "set background" before "hi clear"
+* Error group used two guibg settings, one should have been guifg
+
+marklar.vim
+-----------
+* Do "set background" before "hi clear"
+* Add an autocmd to remove the command
+
+martin_krischik.vim
+-------------------
+* Set gui items without checking if the GUI is running
+* Duplicated guibg setting in PmenuSbar
+* Add autocmd to restore 'guicursor'
+* Don't change t_Co
+
+molokai.vim
+-----------
+* Do "set background" before "hi clear"
+
+moria.vim
+---------
+* Remove unnecessary command
+
+navajo-night.vim
+----------------
+* Duplicated guifg setting in Folded
+
+navajo.vim
+----------
+* Same changes as navajo-night.vim
+
+no_quarter.vim
+--------------
+* perlShellCommand group used two guibg settings, one should have been
+  guifg
+
+papayawhip.vim
+--------------
+* Fix colors_name
+
+railscasts2.vim
+---------------
+* This file is an exact copy of railscasts.vim, so should just be
+  deleted. The patch fixes colors_name to reflect the alternate file
+  name.
+
+rdark.vim
+---------
+* Removed silly rdark_current_line option, which is not distinguishable
+  from just setting the 'cursorline' option
+* "lCursor" misspelled as "ICursor"
+
+rootwater.vim
+-------------
+* "Character" misspelled as "Char"
+* Duplicated guibg setting in TabLineFill
+
+sienna.vim
+----------
+* Remove unnecessary command
+
+silent.vim
+----------
+* Do "set background" before "hi clear"
+* "Character" misspelled as "Chatacter"
+
+simpleandfriendly.vim
+---------------------
+* Don't change 'cursorline' setting
+
+spring.vim
+----------
+* Don't quit if the GUI isn't running
+
+tabula.vim
+----------
+* Do "set background" before "hi clear"
+
+tango2.vim
+----------
+* Folded group used two guibg settings, one should have been guifg
+
+tcsoft.vim
+----------
+* Fix colors_name
+
+vibrantink.vim
+--------------
+* Set gui and cterm items without checking if the GUI is running
+
+winter.vim
+----------
+* Don't quit if the GUI isn't running
+
+wuye.vim
+--------
+* Do "set background" before "hi clear"
+
+xemacs.vim
+----------
+* WildMenu group used two guibg settings, one should have been guifg
+
+xoria256.vim
+------------
+* Don't quit when neither the GUI or a 256-color terminal is in use
