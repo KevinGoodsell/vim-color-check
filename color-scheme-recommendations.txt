@@ -197,6 +197,8 @@ and anything else is only meaningful if a syntax file uses it.
 These are mostly documented in :help highlight-groups, but at least one
 (lCursor) is missing.
 
+ColorColumn
+Conceal
 Cursor
 lCursor
 CursorIM
