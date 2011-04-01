@@ -1,6 +1,3 @@
-Recommendations For Writing Vim Color Schemes
----------------------------------------------
-
 Copyright 2011 Kevin Goodsell
 
 This file is part of Vim Color Check.
@@ -18,6 +15,10 @@ Public License for more details.
 You should have received a copy of the GNU General Public License along
 with Vim Color Check. If not, see <http://www.gnu.org/licenses/>.
 
+
+Recommendations For Writing Vim Color Schemes
+---------------------------------------------
+
 1. Include a copyright notice and license at the top of the file
 
 While I can't give legal advice, this is a pretty basic part of
@@ -32,7 +33,7 @@ http://creativecommons.org/choose/
 
 Please do not use "public domain" as your license. A public domain
 dedication is not meaningful in all copyright jurisdictions. Consider
-something like Creative Commons' CC0 license instead:
+something like Creative Commons's CC0 license instead:
 
 http://creativecommons.org/about/cc0
 
