@@ -190,8 +190,8 @@ to not need any clean up in the first place.
 It's surprisingly difficult to find a complete list of the highlight
 groups that can be used in color scheme files, so they are collected
 here. Any group name is accepted in a highlight command, but some are
-used internally for UI elements, some are used as standard for syntax,
-and anything else is only meaningful if a syntax file uses it.
+used internally for UI elements, some are used as standard groups for
+syntax, and anything else is only meaningful if a syntax file uses it.
 
 9.1 UI highlight groups
 
@@ -278,7 +278,7 @@ Ignore
 Error
 Todo
 
-9.2.1 Linked syntax highlight groups
+9.2.2 Linked syntax highlight groups
 
 String
 Character
