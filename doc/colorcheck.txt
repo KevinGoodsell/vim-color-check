@@ -18,8 +18,8 @@ convenience.
 
 colorcheck#Check({name})                                  *colorcheck#Check()*
     {name} must be a string giving the name of a color scheme available in
-    'runtimepath'. Runs checks an that file and reports results in the Vim
-    message log.
+    'runtimepath'. The color scheme file is checked and results are reported
+    in the Vim message log and |g:colorcheck_log| variable.
 
 
 ==============================================================================
